@@ -1,0 +1,21 @@
+message Rs485{
+	required string dst =1;
+	required Type type = 2 [default = CMD];
+	optional Cmd cmd = 3;
+	
+	enum Type{
+		CMD = 0;
+		DATA =1;
+	}
+
+	enum Cmd{
+		READ_1W = 0;
+		READ_TA_CHAIN =1;
+		READ_ADC0 = 2;
+		READ_ADC1 = 3;
+		READ_ADC2 = 4;
+		READ_ADC3 = 5;
+	}
+
+}
+
