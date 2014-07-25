@@ -1,21 +1,41 @@
 message Rs485{
-	required string dst =1;
-	required Type type = 2 [default = CMD];
-	optional Cmd cmd = 3;
-	
+	required int32 dst =1;
+	required Type type = 2 [default = READ];
+  optional Sensor sensor = 3;
+  repeated OwData ow = 4;
+  optional AnalogData ad = 5;
+  repeated TempAccelData tad = 6; 	
+
 	enum Type{
-		CMD = 0;
-		DATA =1;
+		READ = 0;
+		DATA = 1;
 	}
 
-	enum Cmd{
-		READ_1W = 0;
-		READ_TA_CHAIN =1;
-		READ_ADC0 = 2;
-		READ_ADC1 = 3;
-		READ_ADC2 = 4;
-		READ_ADC3 = 5;
+	enum Sensor{
+		OW = 0;
+		TA_CHAIN =1;
+		ADC0 = 2;
+		ADC1 = 3;
+		ADC2 = 4;
+		ADC3 = 5;
 	}
 
+}
+
+message OwData{
+  required string id = 1;
+  required float value  = 2;
+}
+
+message AnalogData{
+  required int32 adc = 1;
+  required float value = 2;
+}
+
+message TempAccelData{
+  required int32 id = 1;
+  required float pitch = 2;
+  required float roll = 3;
+  required float temp = 4;
 }
 
