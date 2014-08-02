@@ -1,10 +1,10 @@
 message Rs485{
 	required int32 dst =1;
 	required Type type = 2 [default = READ];
-  optional Sensor sensor = 3;
-  repeated OwData ow = 4;
-  optional AnalogData ad = 5;
-  repeated TempAccelData tad = 6; 	
+	optional Sensor sensor = 3;
+	repeated OwData ow = 4;
+	repeated AnalogData ad = 5;
+	repeated TempAccelData tad = 6;
 
 	enum Type{
 		READ = 0;
