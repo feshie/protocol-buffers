@@ -1,0 +1,12 @@
+message Sample {
+  required fixed32 time = 1;
+  optional float   batt = 2;
+  optional float   temp = 3;
+  optional sint32  accX = 4;
+  optional sint32  accY = 5;
+  optional sint32  accZ = 6;
+  optional uint32  ADC1 = 7;
+  optional uint32  ADC2 = 8;
+  optional uint32  rain = 9;
+  optional bytes   AVR  = 10;
+}
