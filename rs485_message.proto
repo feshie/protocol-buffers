@@ -23,7 +23,7 @@ message Rs485{
 }
 
 message OwData{
-  required string id = 1;
+  required int32 id = 1;
   required float value  = 2;
 }
 
