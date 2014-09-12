@@ -2,6 +2,7 @@
 *.pb.cc 
 *.pb.h 
 *pb2.py
+
 # Object files
 *.o
 *.ko
@@ -25,3 +26,9 @@
 *.i*86
 *.x86_64
 *.hex
+
+#Python compiled objects
+*.pyc
+
+#vim swap files
+*.swp
