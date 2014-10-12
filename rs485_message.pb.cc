@@ -156,17 +156,17 @@ void protobuf_AddDesc_rs485_5fmessage_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\023rs485_message.proto\"\203\002\n\005Rs485\022\013\n\003dst\030\001"
+    "\n\023rs485_message.proto\"\200\002\n\005Rs485\022\013\n\003dst\030\001"
     " \002(\005\022\037\n\004type\030\002 \002(\0162\013.Rs485.Type:\004READ\022\035\n"
     "\006sensor\030\003 \001(\0162\r.Rs485.Sensor\022\023\n\002ow\030\004 \003(\013"
     "2\007.OwData\022\027\n\002ad\030\005 \003(\0132\013.AnalogData\022\033\n\003ta"
     "d\030\006 \003(\0132\016.TempAccelData\"\032\n\004Type\022\010\n\004READ\020"
-    "\000\022\010\n\004DATA\020\001\"F\n\006Sensor\022\006\n\002OW\020\000\022\014\n\010TA_CHAI"
-    "N\020\001\022\010\n\004ADC0\020\002\022\010\n\004ADC1\020\003\022\010\n\004ADC2\020\004\022\010\n\004ADC"
-    "3\020\005\"#\n\006OwData\022\n\n\002id\030\001 \002(\005\022\r\n\005value\030\002 \002(\002"
-    "\"(\n\nAnalogData\022\013\n\003adc\030\001 \002(\005\022\r\n\005value\030\002 \002"
-    "(\002\"F\n\rTempAccelData\022\n\n\002id\030\001 \002(\005\022\r\n\005pitch"
-    "\030\002 \002(\002\022\014\n\004roll\030\003 \002(\002\022\014\n\004temp\030\004 \002(\002", 434);
+    "\000\022\010\n\004DATA\020\001\"C\n\006Sensor\022\006\n\002OW\020\000\022\014\n\010TA_CHAI"
+    "N\020\001\022\006\n\002WP\020\002\022\007\n\003GAS\020\003\022\010\n\004ADC2\020\004\022\010\n\004ADC3\020\005"
+    "\"#\n\006OwData\022\n\n\002id\030\001 \002(\005\022\r\n\005value\030\002 \002(\002\"(\n"
+    "\nAnalogData\022\013\n\003adc\030\001 \002(\005\022\r\n\005value\030\002 \002(\002\""
+    "F\n\rTempAccelData\022\n\n\002id\030\001 \002(\005\022\r\n\005pitch\030\002 "
+    "\002(\002\022\014\n\004roll\030\003 \002(\002\022\014\n\004temp\030\004 \002(\002", 431);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "rs485_message.proto", &protobuf_RegisterTypes);
   Rs485::default_instance_ = new Rs485();
@@ -231,8 +231,8 @@ bool Rs485_Sensor_IsValid(int value) {
 #ifndef _MSC_VER
 const Rs485_Sensor Rs485::OW;
 const Rs485_Sensor Rs485::TA_CHAIN;
-const Rs485_Sensor Rs485::ADC0;
-const Rs485_Sensor Rs485::ADC1;
+const Rs485_Sensor Rs485::WP;
+const Rs485_Sensor Rs485::GAS;
 const Rs485_Sensor Rs485::ADC2;
 const Rs485_Sensor Rs485::ADC3;
 const Rs485_Sensor Rs485::Sensor_MIN;

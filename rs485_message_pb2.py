@@ -13,7 +13,7 @@ from google.protobuf import descriptor_pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='rs485_message.proto',
   package='',
-  serialized_pb='\n\x13rs485_message.proto\"\x83\x02\n\x05Rs485\x12\x0b\n\x03\x64st\x18\x01 \x02(\x05\x12\x1f\n\x04type\x18\x02 \x02(\x0e\x32\x0b.Rs485.Type:\x04READ\x12\x1d\n\x06sensor\x18\x03 \x01(\x0e\x32\r.Rs485.Sensor\x12\x13\n\x02ow\x18\x04 \x03(\x0b\x32\x07.OwData\x12\x17\n\x02\x61\x64\x18\x05 \x03(\x0b\x32\x0b.AnalogData\x12\x1b\n\x03tad\x18\x06 \x03(\x0b\x32\x0e.TempAccelData\"\x1a\n\x04Type\x12\x08\n\x04READ\x10\x00\x12\x08\n\x04\x44\x41TA\x10\x01\"F\n\x06Sensor\x12\x06\n\x02OW\x10\x00\x12\x0c\n\x08TA_CHAIN\x10\x01\x12\x08\n\x04\x41\x44\x43\x30\x10\x02\x12\x08\n\x04\x41\x44\x43\x31\x10\x03\x12\x08\n\x04\x41\x44\x43\x32\x10\x04\x12\x08\n\x04\x41\x44\x43\x33\x10\x05\"#\n\x06OwData\x12\n\n\x02id\x18\x01 \x02(\x05\x12\r\n\x05value\x18\x02 \x02(\x02\"(\n\nAnalogData\x12\x0b\n\x03\x61\x64\x63\x18\x01 \x02(\x05\x12\r\n\x05value\x18\x02 \x02(\x02\"F\n\rTempAccelData\x12\n\n\x02id\x18\x01 \x02(\x05\x12\r\n\x05pitch\x18\x02 \x02(\x02\x12\x0c\n\x04roll\x18\x03 \x02(\x02\x12\x0c\n\x04temp\x18\x04 \x02(\x02')
+  serialized_pb='\n\x13rs485_message.proto\"\x80\x02\n\x05Rs485\x12\x0b\n\x03\x64st\x18\x01 \x02(\x05\x12\x1f\n\x04type\x18\x02 \x02(\x0e\x32\x0b.Rs485.Type:\x04READ\x12\x1d\n\x06sensor\x18\x03 \x01(\x0e\x32\r.Rs485.Sensor\x12\x13\n\x02ow\x18\x04 \x03(\x0b\x32\x07.OwData\x12\x17\n\x02\x61\x64\x18\x05 \x03(\x0b\x32\x0b.AnalogData\x12\x1b\n\x03tad\x18\x06 \x03(\x0b\x32\x0e.TempAccelData\"\x1a\n\x04Type\x12\x08\n\x04READ\x10\x00\x12\x08\n\x04\x44\x41TA\x10\x01\"C\n\x06Sensor\x12\x06\n\x02OW\x10\x00\x12\x0c\n\x08TA_CHAIN\x10\x01\x12\x06\n\x02WP\x10\x02\x12\x07\n\x03GAS\x10\x03\x12\x08\n\x04\x41\x44\x43\x32\x10\x04\x12\x08\n\x04\x41\x44\x43\x33\x10\x05\"#\n\x06OwData\x12\n\n\x02id\x18\x01 \x02(\x05\x12\r\n\x05value\x18\x02 \x02(\x02\"(\n\nAnalogData\x12\x0b\n\x03\x61\x64\x63\x18\x01 \x02(\x05\x12\r\n\x05value\x18\x02 \x02(\x02\"F\n\rTempAccelData\x12\n\n\x02id\x18\x01 \x02(\x05\x12\r\n\x05pitch\x18\x02 \x02(\x02\x12\x0c\n\x04roll\x18\x03 \x02(\x02\x12\x0c\n\x04temp\x18\x04 \x02(\x02')
 
 
 
@@ -53,11 +53,11 @@ _RS485_SENSOR = _descriptor.EnumDescriptor(
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='ADC0', index=2, number=2,
+      name='WP', index=2, number=2,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='ADC1', index=3, number=3,
+      name='GAS', index=3, number=3,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
@@ -72,7 +72,7 @@ _RS485_SENSOR = _descriptor.EnumDescriptor(
   containing_type=None,
   options=None,
   serialized_start=213,
-  serialized_end=283,
+  serialized_end=280,
 )
 
 
@@ -137,7 +137,7 @@ _RS485 = _descriptor.Descriptor(
   is_extendable=False,
   extension_ranges=[],
   serialized_start=24,
-  serialized_end=283,
+  serialized_end=280,
 )
 
 
@@ -171,8 +171,8 @@ _OWDATA = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=285,
-  serialized_end=320,
+  serialized_start=282,
+  serialized_end=317,
 )
 
 
@@ -206,8 +206,8 @@ _ANALOGDATA = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=322,
-  serialized_end=362,
+  serialized_start=319,
+  serialized_end=359,
 )
 
 
@@ -255,8 +255,8 @@ _TEMPACCELDATA = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=364,
-  serialized_end=434,
+  serialized_start=361,
+  serialized_end=431,
 )
 
 _RS485.fields_by_name['type'].enum_type = _RS485_TYPE

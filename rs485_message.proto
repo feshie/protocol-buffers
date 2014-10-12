@@ -13,9 +13,9 @@ message Rs485{
 
 	enum Sensor{
 		OW = 0;
-		TA_CHAIN =1;
-		ADC0 = 2;
-		ADC1 = 3;
+		TA_CHAIN = 1;
+		WP = 2;
+		GAS  = 3;
 		ADC2 = 4;
 		ADC3 = 5;
 	}

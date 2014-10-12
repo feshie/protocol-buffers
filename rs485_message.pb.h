@@ -59,8 +59,8 @@ inline bool Rs485_Type_Parse(
 enum Rs485_Sensor {
   Rs485_Sensor_OW = 0,
   Rs485_Sensor_TA_CHAIN = 1,
-  Rs485_Sensor_ADC0 = 2,
-  Rs485_Sensor_ADC1 = 3,
+  Rs485_Sensor_WP = 2,
+  Rs485_Sensor_GAS = 3,
   Rs485_Sensor_ADC2 = 4,
   Rs485_Sensor_ADC3 = 5
 };
@@ -160,8 +160,8 @@ class Rs485 : public ::google::protobuf::Message {
   typedef Rs485_Sensor Sensor;
   static const Sensor OW = Rs485_Sensor_OW;
   static const Sensor TA_CHAIN = Rs485_Sensor_TA_CHAIN;
-  static const Sensor ADC0 = Rs485_Sensor_ADC0;
-  static const Sensor ADC1 = Rs485_Sensor_ADC1;
+  static const Sensor WP = Rs485_Sensor_WP;
+  static const Sensor GAS = Rs485_Sensor_GAS;
   static const Sensor ADC2 = Rs485_Sensor_ADC2;
   static const Sensor ADC3 = Rs485_Sensor_ADC3;
   static inline bool Sensor_IsValid(int value) {
