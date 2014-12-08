@@ -7,13 +7,14 @@ NANO_PB_GEN = nanopb_generator
 all: rs485-message settings readings
 
 rs485-message:
-	protoc -obuffer.pb --cpp_out=. --python_out=. rs485_message.proto
+	protoc -obuffer.pb --python_out=. rs485_message.proto
 	$(NANO_PB_GEN) -f rs485_message.options buffer.pb
 	sed s/\<pb.h\>/\"pb.h\"/g buffer.pb.h > buffer.h
 	sed s/buffer.pb.h/buffer.h/g buffer.pb.c > buffer.c
 	rm buffer.pb.c buffer.pb.h
 	cp buffer.c rs485_message.pb.c
 	sed s/buffer.h/rs485_message.pb.h/g buffer.c > rs485_message.pb.c
+	cp buffer.h rs485_message.pb.h
 
 settings:
 	protoc -osettings.pb --cpp_out=. --python_out=. settings.proto
