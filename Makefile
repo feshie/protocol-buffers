@@ -13,7 +13,7 @@ rs485-message:
 	sed s/buffer.pb.h/buffer.h/g buffer.pb.c > buffer.c
 	rm buffer.pb.c buffer.pb.h
 	cp buffer.c rs485_message.pb.c
-	cp buffer.h rs485_message.pb.h
+	sed s/buffer.h/rs485_message.pb.h/g buffer.c > rs485_message.pb.c
 
 settings:
 	protoc -osettings.pb --cpp_out=. --python_out=. settings.proto
