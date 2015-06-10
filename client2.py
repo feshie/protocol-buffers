@@ -1,7 +1,7 @@
 import sys
 import serial
 import threading
-import rs485_message_pb2
+import python.rs485_message_pb2
 
 from struct import *
 from google.protobuf import message

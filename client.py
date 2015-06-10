@@ -1,6 +1,6 @@
 import sys
 import serial
-import rs485_message_pb2
+import python.rs485_message_pb2
 
 from google.protobuf import message
 
