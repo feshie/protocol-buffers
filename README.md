@@ -1,4 +1,12 @@
 protocol-buffers
 ================
 
-The definitions of the protocol buffers that can be used on multiple platforms
+The definitions of the protocol buffers that can be used on multiple platforms.
+
+There are seperate directories for every target language (currently c and python).
+C projects only need to pull in all.c, it includes the source for every generated message.
+
+This repo should probably be added to the project as a submodule:
+
+    git submodule add git@github.com:feshie/protocol-buffers.git
+    git submodule update --init --recursive
