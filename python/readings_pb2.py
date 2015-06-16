@@ -13,7 +13,7 @@ from google.protobuf import descriptor_pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='readings.proto',
   package='',
-  serialized_pb='\n\x0ereadings.proto\"\x93\x01\n\x06Sample\x12\x0c\n\x04time\x18\x01 \x02(\x07\x12\x0c\n\x04\x62\x61tt\x18\x02 \x01(\x02\x12\x0c\n\x04temp\x18\x03 \x01(\x02\x12\x0c\n\x04\x61\x63\x63X\x18\x04 \x01(\x11\x12\x0c\n\x04\x61\x63\x63Y\x18\x05 \x01(\x11\x12\x0c\n\x04\x61\x63\x63Z\x18\x06 \x01(\x11\x12\x0c\n\x04\x41\x44\x43\x31\x18\x07 \x01(\r\x12\x0c\n\x04\x41\x44\x43\x32\x18\x08 \x01(\r\x12\x0c\n\x04rain\x18\t \x01(\r\x12\x0b\n\x03\x41VR\x18\n \x01(\x0c')
+  serialized_pb='\n\x0ereadings.proto\"\x9f\x01\n\x06Sample\x12\x0c\n\x04time\x18\x01 \x02(\x07\x12\x0c\n\x04\x62\x61tt\x18\x02 \x01(\x02\x12\x0c\n\x04temp\x18\x03 \x01(\x02\x12\x0c\n\x04\x61\x63\x63X\x18\x04 \x01(\x11\x12\x0c\n\x04\x61\x63\x63Y\x18\x05 \x01(\x11\x12\x0c\n\x04\x61\x63\x63Z\x18\x06 \x01(\x11\x12\x0c\n\x04\x41\x44\x43\x31\x18\x07 \x01(\r\x12\x0c\n\x04\x41\x44\x43\x32\x18\x08 \x01(\r\x12\x0c\n\x04rain\x18\t \x01(\r\x12\x0b\n\x03\x41VR\x18\n \x01(\x0c\x12\n\n\x02id\x18\x0b \x02(\r')
 
 
 
@@ -95,6 +95,13 @@ _SAMPLE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='id', full_name='Sample.id', index=10,
+      number=11, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -105,7 +112,7 @@ _SAMPLE = _descriptor.Descriptor(
   is_extendable=False,
   extension_ranges=[],
   serialized_start=19,
-  serialized_end=166,
+  serialized_end=178,
 )
 
 DESCRIPTOR.message_types_by_name['Sample'] = _SAMPLE
