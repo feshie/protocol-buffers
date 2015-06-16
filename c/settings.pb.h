@@ -14,15 +14,6 @@ extern "C" {
 
 /* Enum definitions */
 /* Struct definitions */
-typedef struct _POSTConfig {
-    pb_size_t ip_count;
-    uint32_t ip[8];
-    uint32_t port;
-    uint64_t interval;
-    bool has_offset;
-    uint64_t offset;
-} POSTConfig;
-
 typedef struct _SensorConfig {
     bool hasADC1;
     bool hasADC2;
@@ -36,15 +27,9 @@ typedef struct _SensorConfig {
 
 /* Initializer values for message structs */
 #define SensorConfig_init_default                {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0}, 0}
-#define POSTConfig_init_default                  {0, {0, 0, 0, 0, 0, 0, 0, 0}, 0, 0, false, 0}
 #define SensorConfig_init_zero                   {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0}, 0}
-#define POSTConfig_init_zero                     {0, {0, 0, 0, 0, 0, 0, 0, 0}, 0, 0, false, 0}
 
 /* Field tags (for use in manual encoding/decoding) */
-#define POSTConfig_ip_tag                        1
-#define POSTConfig_port_tag                      2
-#define POSTConfig_interval_tag                  3
-#define POSTConfig_offset_tag                    4
 #define SensorConfig_hasADC1_tag                 1
 #define SensorConfig_hasADC2_tag                 2
 #define SensorConfig_hasRain_tag                 3
@@ -53,11 +38,9 @@ typedef struct _SensorConfig {
 
 /* Struct field encoding specification for nanopb */
 extern const pb_field_t SensorConfig_fields[6];
-extern const pb_field_t POSTConfig_fields[5];
 
 /* Maximum encoded size of messages (where known) */
 #define SensorConfig_size                        65
-#define POSTConfig_size                          76
 
 /* Message IDs (where set with "msgid" option) */
 #ifdef PB_MSGID

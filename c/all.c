@@ -113,12 +113,4 @@ const pb_field_t SensorConfig_fields[6] = {
     PB_LAST_FIELD
 };
 
-const pb_field_t POSTConfig_fields[5] = {
-    PB_FIELD(  1, UINT32  , REPEATED, STATIC  , FIRST, POSTConfig, ip, ip, 0),
-    PB_FIELD(  2, UINT32  , REQUIRED, STATIC  , OTHER, POSTConfig, port, ip, 0),
-    PB_FIELD(  3, UINT64  , REQUIRED, STATIC  , OTHER, POSTConfig, interval, port, 0),
-    PB_FIELD(  4, UINT64  , OPTIONAL, STATIC  , OTHER, POSTConfig, offset, interval, 0),
-    PB_LAST_FIELD
-};
-
 

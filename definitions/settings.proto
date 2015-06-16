@@ -1,14 +1,30 @@
 message SensorConfig {
-	required bool hasADC1 = 1;
-        required bool hasADC2 = 2;
-        required bool hasRain = 3;
-        repeated uint32 avrIDs = 4;
-        required uint64 interval = 5;
-}
 
-message POSTConfig {
-        repeated uint32 ip = 1;
-        required uint32 port = 2;
-        required uint64 interval = 3;
-        optional uint64 offset = 4;
+    /**
+     * True if something is connected to ADC2
+     * and it should be sampled.
+     */
+	required bool hasADC1 = 1;
+
+    /**
+     * True if something is connected to ADC2
+     * and it should be sampled.
+     */
+    required bool hasADC2 = 2;
+
+    /**
+     * True if a rain sensor is connected to the node,
+     * and it should be sampled.
+     */
+    required bool hasRain = 3;
+
+    /**
+     * IDs of all the AVRs connected to the node
+     */
+    repeated uint32 avrIDs = 4;
+
+    /**
+     * Sampling interval in seconds
+     */
+    required uint64 interval = 5;
 }
