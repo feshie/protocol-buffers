@@ -1,3 +1,5 @@
+option java_package = "org.mountainsensing.pb";
+
 /**
  * Represents a reading made by a node
  */

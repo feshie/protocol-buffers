@@ -13,7 +13,7 @@ from google.protobuf import descriptor_pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='settings.proto',
   package='',
-  serialized_pb='\n\x0esettings.proto\"c\n\x0cSensorConfig\x12\x0f\n\x07hasADC1\x18\x01 \x02(\x08\x12\x0f\n\x07hasADC2\x18\x02 \x02(\x08\x12\x0f\n\x07hasRain\x18\x03 \x02(\x08\x12\x0e\n\x06\x61vrIDs\x18\x04 \x03(\r\x12\x10\n\x08interval\x18\x05 \x02(\x04')
+  serialized_pb='\n\x0esettings.proto\"c\n\x0cSensorConfig\x12\x0f\n\x07hasADC1\x18\x01 \x02(\x08\x12\x0f\n\x07hasADC2\x18\x02 \x02(\x08\x12\x0f\n\x07hasRain\x18\x03 \x02(\x08\x12\x0e\n\x06\x61vrIDs\x18\x04 \x03(\r\x12\x10\n\x08interval\x18\x05 \x02(\x04\x42\x18\n\x16org.mountainsensing.pb')
 
 
 
@@ -82,4 +82,6 @@ class SensorConfig(_message.Message):
   # @@protoc_insertion_point(class_scope:SensorConfig)
 
 
+DESCRIPTOR.has_options = True
+DESCRIPTOR._options = _descriptor._ParseOptions(descriptor_pb2.FileOptions(), '\n\026org.mountainsensing.pb')
 # @@protoc_insertion_point(module_scope)

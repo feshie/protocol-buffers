@@ -1,3 +1,5 @@
+option java_package = "org.mountainsensing.pb";
+
 message Rs485{
 	required int32 dst =1;
 	required Type type = 2 [default = READ];

@@ -9,10 +9,11 @@ TOOLS:=tools/
 # Folders for generated C and Python code.
 PY_DIR:=python/
 C_DIR:=c/
+JAVA_DIR:=java/
 
 # All folders for geenrated code.
 # Every target folder defines it's own pattern rule for target/.%.tag
-OBJ_DIRS:=$(PY_DIR) $(C_DIR)
+OBJ_DIRS:=$(PY_DIR) $(C_DIR) $(JAVA_DIR)
 
 # PROTOC Compiler to use
 PROTOC:=protoc
@@ -32,6 +33,9 @@ $(PY_DIR).%.tag: $(DEF_DIR)%.proto $(DEF_DIR)%.options | $(PY_DIR).dirtag
 	@cd $(DEF_DIR); $(PROTOC) --python_out=../$(PY_DIR) $(<F)
 	@touch $(PY_DIR)__init__.py
 
+$(JAVA_DIR).%.tag: $(DEF_DIR)%.proto $(DEF_DIR)%.options | $(JAVA_DIR).dirtag
+	@cd $(DEF_DIR); $(PROTOC) --java_out=../$(JAVA_DIR) $(<F)
+
 $(C_DIR).%.tag: $(C_DIR)%.pb $(DEF_DIR)%.options | $(C_DIR).dirtag
 	@$(NANOPB) -q -T -f $(DEF_DIR)$*.options -L "#include \"%s\"" $(C_DIR)$*.pb
 
@@ -48,4 +52,4 @@ $(C_DIR)all.c: $(filter $(C_DIR)%,$(TAGS))
 
 .PHONY: clean
 clean:
-	@-rm -rf $(PY_DIR) $(C_DIR)
+	@-rm -rf $(OBJ_DIRS)
