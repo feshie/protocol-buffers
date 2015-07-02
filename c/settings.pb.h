@@ -13,6 +13,12 @@ extern "C" {
 #endif
 
 /* Enum definitions */
+typedef enum _SensorConfig_RoutingMode {
+    SensorConfig_RoutingMode_MESH = 0,
+    SensorConfig_RoutingMode_FEATHER = 1,
+    SensorConfig_RoutingMode_LEAF = 2
+} SensorConfig_RoutingMode;
+
 /* Struct definitions */
 typedef struct _SensorConfig {
     bool hasADC1;
@@ -21,13 +27,16 @@ typedef struct _SensorConfig {
     pb_size_t avrIDs_count;
     uint32_t avrIDs[8];
     uint64_t interval;
+    bool has_routingMode;
+    SensorConfig_RoutingMode routingMode;
 } SensorConfig;
 
 /* Default values for struct fields */
+extern const SensorConfig_RoutingMode SensorConfig_routingMode_default;
 
 /* Initializer values for message structs */
-#define SensorConfig_init_default                {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0}, 0}
-#define SensorConfig_init_zero                   {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0}, 0}
+#define SensorConfig_init_default                {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0}, 0, false, SensorConfig_RoutingMode_MESH}
+#define SensorConfig_init_zero                   {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0}, 0, false, (SensorConfig_RoutingMode)0}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define SensorConfig_hasADC1_tag                 1
@@ -35,12 +44,13 @@ typedef struct _SensorConfig {
 #define SensorConfig_hasRain_tag                 3
 #define SensorConfig_avrIDs_tag                  4
 #define SensorConfig_interval_tag                5
+#define SensorConfig_routingMode_tag             6
 
 /* Struct field encoding specification for nanopb */
-extern const pb_field_t SensorConfig_fields[6];
+extern const pb_field_t SensorConfig_fields[7];
 
 /* Maximum encoded size of messages (where known) */
-#define SensorConfig_size                        65
+#define SensorConfig_size                        71
 
 /* Message IDs (where set with "msgid" option) */
 #ifdef PB_MSGID

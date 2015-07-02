@@ -125,6 +125,32 @@ public final class Settings {
      * </pre>
      */
     long getInterval();
+
+    // optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];
+    /**
+     * <code>optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];</code>
+     *
+     * <pre>
+     **
+     * The routing mode for this node.
+     * MESH sets the node as a potential parent, ie it will handle packets on the behalf of other nodes.
+     * FEATHER makes the node a simple relay, nothing can be routed to / from it.
+     * LEAF makes the node accessible over the network, but prohibits it from having children routes.
+     * </pre>
+     */
+    boolean hasRoutingMode();
+    /**
+     * <code>optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];</code>
+     *
+     * <pre>
+     **
+     * The routing mode for this node.
+     * MESH sets the node as a potential parent, ie it will handle packets on the behalf of other nodes.
+     * FEATHER makes the node a simple relay, nothing can be routed to / from it.
+     * LEAF makes the node accessible over the network, but prohibits it from having children routes.
+     * </pre>
+     */
+    org.mountainsensing.pb.Settings.SensorConfig.RoutingMode getRoutingMode();
   }
   /**
    * Protobuf type {@code SensorConfig}
@@ -218,6 +244,17 @@ public final class Settings {
               interval_ = input.readUInt64();
               break;
             }
+            case 48: {
+              int rawValue = input.readEnum();
+              org.mountainsensing.pb.Settings.SensorConfig.RoutingMode value = org.mountainsensing.pb.Settings.SensorConfig.RoutingMode.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(6, rawValue);
+              } else {
+                bitField0_ |= 0x00000010;
+                routingMode_ = value;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -258,6 +295,97 @@ public final class Settings {
     @java.lang.Override
     public com.google.protobuf.Parser<SensorConfig> getParserForType() {
       return PARSER;
+    }
+
+    /**
+     * Protobuf enum {@code SensorConfig.RoutingMode}
+     */
+    public enum RoutingMode
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>MESH = 0;</code>
+       */
+      MESH(0, 0),
+      /**
+       * <code>FEATHER = 1;</code>
+       */
+      FEATHER(1, 1),
+      /**
+       * <code>LEAF = 2;</code>
+       */
+      LEAF(2, 2),
+      ;
+
+      /**
+       * <code>MESH = 0;</code>
+       */
+      public static final int MESH_VALUE = 0;
+      /**
+       * <code>FEATHER = 1;</code>
+       */
+      public static final int FEATHER_VALUE = 1;
+      /**
+       * <code>LEAF = 2;</code>
+       */
+      public static final int LEAF_VALUE = 2;
+
+
+      public final int getNumber() { return value; }
+
+      public static RoutingMode valueOf(int value) {
+        switch (value) {
+          case 0: return MESH;
+          case 1: return FEATHER;
+          case 2: return LEAF;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<RoutingMode>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static com.google.protobuf.Internal.EnumLiteMap<RoutingMode>
+          internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<RoutingMode>() {
+              public RoutingMode findValueByNumber(int number) {
+                return RoutingMode.valueOf(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(index);
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return org.mountainsensing.pb.Settings.SensorConfig.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final RoutingMode[] VALUES = values();
+
+      public static RoutingMode valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int index;
+      private final int value;
+
+      private RoutingMode(int index, int value) {
+        this.index = index;
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:SensorConfig.RoutingMode)
     }
 
     private int bitField0_;
@@ -409,12 +537,45 @@ public final class Settings {
       return interval_;
     }
 
+    // optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];
+    public static final int ROUTINGMODE_FIELD_NUMBER = 6;
+    private org.mountainsensing.pb.Settings.SensorConfig.RoutingMode routingMode_;
+    /**
+     * <code>optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];</code>
+     *
+     * <pre>
+     **
+     * The routing mode for this node.
+     * MESH sets the node as a potential parent, ie it will handle packets on the behalf of other nodes.
+     * FEATHER makes the node a simple relay, nothing can be routed to / from it.
+     * LEAF makes the node accessible over the network, but prohibits it from having children routes.
+     * </pre>
+     */
+    public boolean hasRoutingMode() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];</code>
+     *
+     * <pre>
+     **
+     * The routing mode for this node.
+     * MESH sets the node as a potential parent, ie it will handle packets on the behalf of other nodes.
+     * FEATHER makes the node a simple relay, nothing can be routed to / from it.
+     * LEAF makes the node accessible over the network, but prohibits it from having children routes.
+     * </pre>
+     */
+    public org.mountainsensing.pb.Settings.SensorConfig.RoutingMode getRoutingMode() {
+      return routingMode_;
+    }
+
     private void initFields() {
       hasADC1_ = false;
       hasADC2_ = false;
       hasRain_ = false;
       avrIDs_ = java.util.Collections.emptyList();
       interval_ = 0L;
+      routingMode_ = org.mountainsensing.pb.Settings.SensorConfig.RoutingMode.MESH;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -459,6 +620,9 @@ public final class Settings {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeUInt64(5, interval_);
       }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeEnum(6, routingMode_.getNumber());
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -492,6 +656,10 @@ public final class Settings {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(5, interval_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(6, routingMode_.getNumber());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -619,6 +787,8 @@ public final class Settings {
         bitField0_ = (bitField0_ & ~0x00000008);
         interval_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000010);
+        routingMode_ = org.mountainsensing.pb.Settings.SensorConfig.RoutingMode.MESH;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -668,6 +838,10 @@ public final class Settings {
           to_bitField0_ |= 0x00000008;
         }
         result.interval_ = interval_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.routingMode_ = routingMode_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -705,6 +879,9 @@ public final class Settings {
         }
         if (other.hasInterval()) {
           setInterval(other.getInterval());
+        }
+        if (other.hasRoutingMode()) {
+          setRoutingMode(other.getRoutingMode());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1074,6 +1251,74 @@ public final class Settings {
         return this;
       }
 
+      // optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];
+      private org.mountainsensing.pb.Settings.SensorConfig.RoutingMode routingMode_ = org.mountainsensing.pb.Settings.SensorConfig.RoutingMode.MESH;
+      /**
+       * <code>optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];</code>
+       *
+       * <pre>
+       **
+       * The routing mode for this node.
+       * MESH sets the node as a potential parent, ie it will handle packets on the behalf of other nodes.
+       * FEATHER makes the node a simple relay, nothing can be routed to / from it.
+       * LEAF makes the node accessible over the network, but prohibits it from having children routes.
+       * </pre>
+       */
+      public boolean hasRoutingMode() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];</code>
+       *
+       * <pre>
+       **
+       * The routing mode for this node.
+       * MESH sets the node as a potential parent, ie it will handle packets on the behalf of other nodes.
+       * FEATHER makes the node a simple relay, nothing can be routed to / from it.
+       * LEAF makes the node accessible over the network, but prohibits it from having children routes.
+       * </pre>
+       */
+      public org.mountainsensing.pb.Settings.SensorConfig.RoutingMode getRoutingMode() {
+        return routingMode_;
+      }
+      /**
+       * <code>optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];</code>
+       *
+       * <pre>
+       **
+       * The routing mode for this node.
+       * MESH sets the node as a potential parent, ie it will handle packets on the behalf of other nodes.
+       * FEATHER makes the node a simple relay, nothing can be routed to / from it.
+       * LEAF makes the node accessible over the network, but prohibits it from having children routes.
+       * </pre>
+       */
+      public Builder setRoutingMode(org.mountainsensing.pb.Settings.SensorConfig.RoutingMode value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000020;
+        routingMode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];</code>
+       *
+       * <pre>
+       **
+       * The routing mode for this node.
+       * MESH sets the node as a potential parent, ie it will handle packets on the behalf of other nodes.
+       * FEATHER makes the node a simple relay, nothing can be routed to / from it.
+       * LEAF makes the node accessible over the network, but prohibits it from having children routes.
+       * </pre>
+       */
+      public Builder clearRoutingMode() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        routingMode_ = org.mountainsensing.pb.Settings.SensorConfig.RoutingMode.MESH;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:SensorConfig)
     }
 
@@ -1099,10 +1344,13 @@ public final class Settings {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016settings.proto\"c\n\014SensorConfig\022\017\n\007hasA" +
-      "DC1\030\001 \002(\010\022\017\n\007hasADC2\030\002 \002(\010\022\017\n\007hasRain\030\003 " +
-      "\002(\010\022\016\n\006avrIDs\030\004 \003(\r\022\020\n\010interval\030\005 \002(\004B\030\n" +
-      "\026org.mountainsensing.pb"
+      "\n\016settings.proto\"\311\001\n\014SensorConfig\022\017\n\007has" +
+      "ADC1\030\001 \002(\010\022\017\n\007hasADC2\030\002 \002(\010\022\017\n\007hasRain\030\003" +
+      " \002(\010\022\016\n\006avrIDs\030\004 \003(\r\022\020\n\010interval\030\005 \002(\004\0224" +
+      "\n\013routingMode\030\006 \001(\0162\031.SensorConfig.Routi" +
+      "ngMode:\004MESH\".\n\013RoutingMode\022\010\n\004MESH\020\000\022\013\n" +
+      "\007FEATHER\020\001\022\010\n\004LEAF\020\002B\030\n\026org.mountainsens" +
+      "ing.pb"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -1114,7 +1362,7 @@ public final class Settings {
           internal_static_SensorConfig_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_SensorConfig_descriptor,
-              new java.lang.String[] { "HasADC1", "HasADC2", "HasRain", "AvrIDs", "Interval", });
+              new java.lang.String[] { "HasADC1", "HasADC2", "HasRain", "AvrIDs", "Interval", "RoutingMode", });
           return null;
         }
       };

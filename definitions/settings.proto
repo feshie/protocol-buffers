@@ -2,6 +2,12 @@ option java_package = "org.mountainsensing.pb";
 
 message SensorConfig {
 
+    enum RoutingMode {
+		MESH = 0;
+		FEATHER = 1;
+        LEAF = 2;
+	}
+
     /**
      * True if something is connected to ADC2
      * and it should be sampled.
@@ -29,4 +35,12 @@ message SensorConfig {
      * Sampling interval in seconds
      */
     required uint64 interval = 5;
+
+    /**
+     * The routing mode for this node.
+     * MESH sets the node as a potential parent, ie it will handle packets on the behalf of other nodes.
+     * FEATHER makes the node a simple relay, nothing can be routed to / from it.
+     * LEAF makes the node accessible over the network, but prohibits it from having children routes.
+     */
+    optional RoutingMode routingMode = 6 [default = MESH];
 }
