@@ -1,7 +1,10 @@
+#!/usr/bin/env python
+# talk to an rs485 linked "smart sensor"
+# example args: /dev/ttyUSB0 9600
 import sys
 import serial
 import threading
-import python.rs485_message_pb2
+import python.rs485_message_pb2 as rs485_message_pb2
 
 from struct import *
 from google.protobuf import message

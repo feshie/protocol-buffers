@@ -10,3 +10,10 @@ This repo should probably be added to the project as a submodule:
 
     git submodule add git@github.com:feshie/protocol-buffers.git
     git submodule update --init --recursive
+
+to test rs485 sensors use:
+python ./client2.py /dev/ttyUSB0 9600
+then try getting data with ID param (make sure 1 is 01)
+g 01
+g 20
+
