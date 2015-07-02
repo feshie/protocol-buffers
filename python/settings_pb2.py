@@ -13,7 +13,7 @@ from google.protobuf import descriptor_pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='settings.proto',
   package='',
-  serialized_pb='\n\x0esettings.proto\"\xc9\x01\n\x0cSensorConfig\x12\x0f\n\x07hasADC1\x18\x01 \x02(\x08\x12\x0f\n\x07hasADC2\x18\x02 \x02(\x08\x12\x0f\n\x07hasRain\x18\x03 \x02(\x08\x12\x0e\n\x06\x61vrIDs\x18\x04 \x03(\r\x12\x10\n\x08interval\x18\x05 \x02(\x04\x12\x34\n\x0broutingMode\x18\x06 \x01(\x0e\x32\x19.SensorConfig.RoutingMode:\x04MESH\".\n\x0bRoutingMode\x12\x08\n\x04MESH\x10\x00\x12\x0b\n\x07\x46\x45\x41THER\x10\x01\x12\x08\n\x04LEAF\x10\x02\x42\x18\n\x16org.mountainsensing.pb')
+  serialized_pb='\n\x0esettings.proto\"\xc3\x01\n\x0cSensorConfig\x12\x0f\n\x07hasADC1\x18\x01 \x02(\x08\x12\x0f\n\x07hasADC2\x18\x02 \x02(\x08\x12\x0f\n\x07hasRain\x18\x03 \x02(\x08\x12\x0e\n\x06\x61vrIDs\x18\x04 \x03(\r\x12\x10\n\x08interval\x18\x05 \x02(\x04\x12.\n\x0broutingMode\x18\x06 \x02(\x0e\x32\x19.SensorConfig.RoutingMode\".\n\x0bRoutingMode\x12\x08\n\x04MESH\x10\x00\x12\x0b\n\x07\x46\x45\x41THER\x10\x01\x12\x08\n\x04LEAF\x10\x02\x42\x18\n\x16org.mountainsensing.pb')
 
 
 
@@ -38,8 +38,8 @@ _SENSORCONFIG_ROUTINGMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=174,
-  serialized_end=220,
+  serialized_start=168,
+  serialized_end=214,
 )
 
 
@@ -87,8 +87,8 @@ _SENSORCONFIG = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='routingMode', full_name='SensorConfig.routingMode', index=5,
-      number=6, type=14, cpp_type=8, label=1,
-      has_default_value=True, default_value=0,
+      number=6, type=14, cpp_type=8, label=2,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -103,7 +103,7 @@ _SENSORCONFIG = _descriptor.Descriptor(
   is_extendable=False,
   extension_ranges=[],
   serialized_start=19,
-  serialized_end=220,
+  serialized_end=214,
 )
 
 _SENSORCONFIG.fields_by_name['routingMode'].enum_type = _SENSORCONFIG_ROUTINGMODE

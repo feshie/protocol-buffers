@@ -102,7 +102,6 @@ PB_STATIC_ASSERT((pb_membersize(Rs485, ow[0]) < 256 && pb_membersize(Rs485, ad[0
 #error Regenerate this file with the current version of nanopb generator.
 #endif
 
-const SensorConfig_RoutingMode SensorConfig_routingMode_default = SensorConfig_RoutingMode_MESH;
 
 
 const pb_field_t SensorConfig_fields[7] = {
@@ -111,7 +110,7 @@ const pb_field_t SensorConfig_fields[7] = {
     PB_FIELD(  3, BOOL    , REQUIRED, STATIC  , OTHER, SensorConfig, hasRain, hasADC2, 0),
     PB_FIELD(  4, UINT32  , REPEATED, STATIC  , OTHER, SensorConfig, avrIDs, hasRain, 0),
     PB_FIELD(  5, UINT64  , REQUIRED, STATIC  , OTHER, SensorConfig, interval, avrIDs, 0),
-    PB_FIELD(  6, ENUM    , OPTIONAL, STATIC  , OTHER, SensorConfig, routingMode, interval, &SensorConfig_routingMode_default),
+    PB_FIELD(  6, ENUM    , REQUIRED, STATIC  , OTHER, SensorConfig, routingMode, interval, 0),
     PB_LAST_FIELD
 };
 

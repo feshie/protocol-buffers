@@ -27,16 +27,14 @@ typedef struct _SensorConfig {
     pb_size_t avrIDs_count;
     uint32_t avrIDs[8];
     uint64_t interval;
-    bool has_routingMode;
     SensorConfig_RoutingMode routingMode;
 } SensorConfig;
 
 /* Default values for struct fields */
-extern const SensorConfig_RoutingMode SensorConfig_routingMode_default;
 
 /* Initializer values for message structs */
-#define SensorConfig_init_default                {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0}, 0, false, SensorConfig_RoutingMode_MESH}
-#define SensorConfig_init_zero                   {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0}, 0, false, (SensorConfig_RoutingMode)0}
+#define SensorConfig_init_default                {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0}, 0, (SensorConfig_RoutingMode)0}
+#define SensorConfig_init_zero                   {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0}, 0, (SensorConfig_RoutingMode)0}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define SensorConfig_hasADC1_tag                 1

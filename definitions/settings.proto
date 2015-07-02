@@ -42,5 +42,5 @@ message SensorConfig {
      * FEATHER makes the node a simple relay, nothing can be routed to / from it.
      * LEAF makes the node accessible over the network, but prohibits it from having children routes.
      */
-    optional RoutingMode routingMode = 6 [default = MESH];
+    required RoutingMode routingMode = 6;
 }

@@ -126,9 +126,9 @@ public final class Settings {
      */
     long getInterval();
 
-    // optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];
+    // required .SensorConfig.RoutingMode routingMode = 6;
     /**
-     * <code>optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];</code>
+     * <code>required .SensorConfig.RoutingMode routingMode = 6;</code>
      *
      * <pre>
      **
@@ -140,7 +140,7 @@ public final class Settings {
      */
     boolean hasRoutingMode();
     /**
-     * <code>optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];</code>
+     * <code>required .SensorConfig.RoutingMode routingMode = 6;</code>
      *
      * <pre>
      **
@@ -537,11 +537,11 @@ public final class Settings {
       return interval_;
     }
 
-    // optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];
+    // required .SensorConfig.RoutingMode routingMode = 6;
     public static final int ROUTINGMODE_FIELD_NUMBER = 6;
     private org.mountainsensing.pb.Settings.SensorConfig.RoutingMode routingMode_;
     /**
-     * <code>optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];</code>
+     * <code>required .SensorConfig.RoutingMode routingMode = 6;</code>
      *
      * <pre>
      **
@@ -555,7 +555,7 @@ public final class Settings {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];</code>
+     * <code>required .SensorConfig.RoutingMode routingMode = 6;</code>
      *
      * <pre>
      **
@@ -595,6 +595,10 @@ public final class Settings {
         return false;
       }
       if (!hasInterval()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasRoutingMode()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -901,6 +905,10 @@ public final class Settings {
           return false;
         }
         if (!hasInterval()) {
+          
+          return false;
+        }
+        if (!hasRoutingMode()) {
           
           return false;
         }
@@ -1251,10 +1259,10 @@ public final class Settings {
         return this;
       }
 
-      // optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];
+      // required .SensorConfig.RoutingMode routingMode = 6;
       private org.mountainsensing.pb.Settings.SensorConfig.RoutingMode routingMode_ = org.mountainsensing.pb.Settings.SensorConfig.RoutingMode.MESH;
       /**
-       * <code>optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];</code>
+       * <code>required .SensorConfig.RoutingMode routingMode = 6;</code>
        *
        * <pre>
        **
@@ -1268,7 +1276,7 @@ public final class Settings {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];</code>
+       * <code>required .SensorConfig.RoutingMode routingMode = 6;</code>
        *
        * <pre>
        **
@@ -1282,7 +1290,7 @@ public final class Settings {
         return routingMode_;
       }
       /**
-       * <code>optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];</code>
+       * <code>required .SensorConfig.RoutingMode routingMode = 6;</code>
        *
        * <pre>
        **
@@ -1302,7 +1310,7 @@ public final class Settings {
         return this;
       }
       /**
-       * <code>optional .SensorConfig.RoutingMode routingMode = 6 [default = MESH];</code>
+       * <code>required .SensorConfig.RoutingMode routingMode = 6;</code>
        *
        * <pre>
        **
@@ -1344,13 +1352,12 @@ public final class Settings {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016settings.proto\"\311\001\n\014SensorConfig\022\017\n\007has" +
+      "\n\016settings.proto\"\303\001\n\014SensorConfig\022\017\n\007has" +
       "ADC1\030\001 \002(\010\022\017\n\007hasADC2\030\002 \002(\010\022\017\n\007hasRain\030\003" +
-      " \002(\010\022\016\n\006avrIDs\030\004 \003(\r\022\020\n\010interval\030\005 \002(\004\0224" +
-      "\n\013routingMode\030\006 \001(\0162\031.SensorConfig.Routi" +
-      "ngMode:\004MESH\".\n\013RoutingMode\022\010\n\004MESH\020\000\022\013\n" +
-      "\007FEATHER\020\001\022\010\n\004LEAF\020\002B\030\n\026org.mountainsens" +
-      "ing.pb"
+      " \002(\010\022\016\n\006avrIDs\030\004 \003(\r\022\020\n\010interval\030\005 \002(\004\022." +
+      "\n\013routingMode\030\006 \002(\0162\031.SensorConfig.Routi" +
+      "ngMode\".\n\013RoutingMode\022\010\n\004MESH\020\000\022\013\n\007FEATH" +
+      "ER\020\001\022\010\n\004LEAF\020\002B\030\n\026org.mountainsensing.pb"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
