@@ -36,13 +36,15 @@ typedef struct _Sample {
     bool has_AVR;
     Sample_AVR_t AVR;
     uint32_t id;
+    bool has_humid;
+    float humid;
 } Sample;
 
 /* Default values for struct fields */
 
 /* Initializer values for message structs */
-#define Sample_init_default                      {0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, {0, {0}}, 0}
-#define Sample_init_zero                         {0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, {0, {0}}, 0}
+#define Sample_init_default                      {0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, {0, {0}}, 0, false, 0}
+#define Sample_init_zero                         {0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, {0, {0}}, 0, false, 0}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define Sample_time_tag                          1
@@ -56,12 +58,13 @@ typedef struct _Sample {
 #define Sample_rain_tag                          9
 #define Sample_AVR_tag                           10
 #define Sample_id_tag                            11
+#define Sample_humid_tag                         12
 
 /* Struct field encoding specification for nanopb */
-extern const pb_field_t Sample_fields[12];
+extern const pb_field_t Sample_fields[13];
 
 /* Maximum encoded size of messages (where known) */
-#define Sample_size                              151
+#define Sample_size                              156
 
 /* Message IDs (where set with "msgid" option) */
 #ifdef PB_MSGID

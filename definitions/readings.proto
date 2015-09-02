@@ -13,43 +13,48 @@ message Sample {
     /**
      * Battery voltage in Volts
      */
-    optional float   batt = 2;
+    optional float batt = 2;
 
     /**
-     * Internal node temperature in Celcius
+     * Temperature in Celcius
      */
-    optional float   temp = 3;
+    optional float temp = 3;
 
     /**
      * RAW accelerometer data
      */
-    optional sint32  accX = 4;
-    optional sint32  accY = 5;
-    optional sint32  accZ = 6;
+    optional sint32 accX = 4;
+    optional sint32 accY = 5;
+    optional sint32 accZ = 6;
 
     /**
      * RAW data from ADC1
      */
-    optional uint32  ADC1 = 7;
+    optional uint32 ADC1 = 7;
 
     /**
      * RAW data from ADC2
      */
-    optional uint32  ADC2 = 8;
+    optional uint32 ADC2 = 8;
 
     /**
      * RAW data from rain sensor
      */
-    optional uint32  rain = 9;
+    optional uint32 rain = 9;
 
     /**
      * RAW protocol buffer data from AVR sensor
      */
-    optional bytes   AVR  = 10;
+    optional bytes AVR  = 10;
 
     /**
      * The identifier of this reading
      * Unique for the lifetime of the reading on the node
      */
-    required uint32  id = 11;
+    required uint32 id = 11;
+
+    /**
+     * The humidity in percentage (0-100)
+     */
+    optional float humid = 12;
 }

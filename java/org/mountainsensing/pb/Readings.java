@@ -57,7 +57,7 @@ public final class Readings {
      *
      * <pre>
      **
-     * Internal node temperature in Celcius
+     * Temperature in Celcius
      * </pre>
      */
     boolean hasTemp();
@@ -66,7 +66,7 @@ public final class Readings {
      *
      * <pre>
      **
-     * Internal node temperature in Celcius
+     * Temperature in Celcius
      * </pre>
      */
     float getTemp();
@@ -212,6 +212,26 @@ public final class Readings {
      * </pre>
      */
     int getId();
+
+    // optional float humid = 12;
+    /**
+     * <code>optional float humid = 12;</code>
+     *
+     * <pre>
+     **
+     * The humidity in percentage (0-100)
+     * </pre>
+     */
+    boolean hasHumid();
+    /**
+     * <code>optional float humid = 12;</code>
+     *
+     * <pre>
+     **
+     * The humidity in percentage (0-100)
+     * </pre>
+     */
+    float getHumid();
   }
   /**
    * Protobuf type {@code Sample}
@@ -324,6 +344,11 @@ public final class Readings {
               id_ = input.readUInt32();
               break;
             }
+            case 101: {
+              bitField0_ |= 0x00000800;
+              humid_ = input.readFloat();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -424,7 +449,7 @@ public final class Readings {
      *
      * <pre>
      **
-     * Internal node temperature in Celcius
+     * Temperature in Celcius
      * </pre>
      */
     public boolean hasTemp() {
@@ -435,7 +460,7 @@ public final class Readings {
      *
      * <pre>
      **
-     * Internal node temperature in Celcius
+     * Temperature in Celcius
      * </pre>
      */
     public float getTemp() {
@@ -632,6 +657,32 @@ public final class Readings {
       return id_;
     }
 
+    // optional float humid = 12;
+    public static final int HUMID_FIELD_NUMBER = 12;
+    private float humid_;
+    /**
+     * <code>optional float humid = 12;</code>
+     *
+     * <pre>
+     **
+     * The humidity in percentage (0-100)
+     * </pre>
+     */
+    public boolean hasHumid() {
+      return ((bitField0_ & 0x00000800) == 0x00000800);
+    }
+    /**
+     * <code>optional float humid = 12;</code>
+     *
+     * <pre>
+     **
+     * The humidity in percentage (0-100)
+     * </pre>
+     */
+    public float getHumid() {
+      return humid_;
+    }
+
     private void initFields() {
       time_ = 0;
       batt_ = 0F;
@@ -644,6 +695,7 @@ public final class Readings {
       rain_ = 0;
       aVR_ = com.google.protobuf.ByteString.EMPTY;
       id_ = 0;
+      humid_ = 0F;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -698,6 +750,9 @@ public final class Readings {
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
         output.writeUInt32(11, id_);
       }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        output.writeFloat(12, humid_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -750,6 +805,10 @@ public final class Readings {
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(11, id_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(12, humid_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -894,6 +953,8 @@ public final class Readings {
         bitField0_ = (bitField0_ & ~0x00000200);
         id_ = 0;
         bitField0_ = (bitField0_ & ~0x00000400);
+        humid_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
 
@@ -966,6 +1027,10 @@ public final class Readings {
           to_bitField0_ |= 0x00000400;
         }
         result.id_ = id_;
+        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
+          to_bitField0_ |= 0x00000800;
+        }
+        result.humid_ = humid_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1014,6 +1079,9 @@ public final class Readings {
         }
         if (other.hasId()) {
           setId(other.getId());
+        }
+        if (other.hasHumid()) {
+          setHumid(other.getHumid());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1163,7 +1231,7 @@ public final class Readings {
        *
        * <pre>
        **
-       * Internal node temperature in Celcius
+       * Temperature in Celcius
        * </pre>
        */
       public boolean hasTemp() {
@@ -1174,7 +1242,7 @@ public final class Readings {
        *
        * <pre>
        **
-       * Internal node temperature in Celcius
+       * Temperature in Celcius
        * </pre>
        */
       public float getTemp() {
@@ -1185,7 +1253,7 @@ public final class Readings {
        *
        * <pre>
        **
-       * Internal node temperature in Celcius
+       * Temperature in Celcius
        * </pre>
        */
       public Builder setTemp(float value) {
@@ -1199,7 +1267,7 @@ public final class Readings {
        *
        * <pre>
        **
-       * Internal node temperature in Celcius
+       * Temperature in Celcius
        * </pre>
        */
       public Builder clearTemp() {
@@ -1600,6 +1668,59 @@ public final class Readings {
         return this;
       }
 
+      // optional float humid = 12;
+      private float humid_ ;
+      /**
+       * <code>optional float humid = 12;</code>
+       *
+       * <pre>
+       **
+       * The humidity in percentage (0-100)
+       * </pre>
+       */
+      public boolean hasHumid() {
+        return ((bitField0_ & 0x00000800) == 0x00000800);
+      }
+      /**
+       * <code>optional float humid = 12;</code>
+       *
+       * <pre>
+       **
+       * The humidity in percentage (0-100)
+       * </pre>
+       */
+      public float getHumid() {
+        return humid_;
+      }
+      /**
+       * <code>optional float humid = 12;</code>
+       *
+       * <pre>
+       **
+       * The humidity in percentage (0-100)
+       * </pre>
+       */
+      public Builder setHumid(float value) {
+        bitField0_ |= 0x00000800;
+        humid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional float humid = 12;</code>
+       *
+       * <pre>
+       **
+       * The humidity in percentage (0-100)
+       * </pre>
+       */
+      public Builder clearHumid() {
+        bitField0_ = (bitField0_ & ~0x00000800);
+        humid_ = 0F;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:Sample)
     }
 
@@ -1625,12 +1746,12 @@ public final class Readings {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016readings.proto\"\237\001\n\006Sample\022\014\n\004time\030\001 \002(" +
+      "\n\016readings.proto\"\256\001\n\006Sample\022\014\n\004time\030\001 \002(" +
       "\007\022\014\n\004batt\030\002 \001(\002\022\014\n\004temp\030\003 \001(\002\022\014\n\004accX\030\004 " +
       "\001(\021\022\014\n\004accY\030\005 \001(\021\022\014\n\004accZ\030\006 \001(\021\022\014\n\004ADC1\030" +
       "\007 \001(\r\022\014\n\004ADC2\030\010 \001(\r\022\014\n\004rain\030\t \001(\r\022\013\n\003AVR" +
-      "\030\n \001(\014\022\n\n\002id\030\013 \002(\rB\030\n\026org.mountainsensin" +
-      "g.pb"
+      "\030\n \001(\014\022\n\n\002id\030\013 \002(\r\022\r\n\005humid\030\014 \001(\002B\030\n\026org" +
+      ".mountainsensing.pb"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -1642,7 +1763,7 @@ public final class Readings {
           internal_static_Sample_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_Sample_descriptor,
-              new java.lang.String[] { "Time", "Batt", "Temp", "AccX", "AccY", "AccZ", "ADC1", "ADC2", "Rain", "AVR", "Id", });
+              new java.lang.String[] { "Time", "Batt", "Temp", "AccX", "AccY", "AccZ", "ADC1", "ADC2", "Rain", "AVR", "Id", "Humid", });
           return null;
         }
       };

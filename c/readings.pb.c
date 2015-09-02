@@ -9,7 +9,7 @@
 
 
 
-const pb_field_t Sample_fields[12] = {
+const pb_field_t Sample_fields[13] = {
     PB_FIELD(  1, FIXED32 , REQUIRED, STATIC  , FIRST, Sample, time, time, 0),
     PB_FIELD(  2, FLOAT   , OPTIONAL, STATIC  , OTHER, Sample, batt, time, 0),
     PB_FIELD(  3, FLOAT   , OPTIONAL, STATIC  , OTHER, Sample, temp, batt, 0),
@@ -21,6 +21,7 @@ const pb_field_t Sample_fields[12] = {
     PB_FIELD(  9, UINT32  , OPTIONAL, STATIC  , OTHER, Sample, rain, ADC2, 0),
     PB_FIELD( 10, BYTES   , OPTIONAL, STATIC  , OTHER, Sample, AVR, rain, 0),
     PB_FIELD( 11, UINT32  , REQUIRED, STATIC  , OTHER, Sample, id, AVR, 0),
+    PB_FIELD( 12, FLOAT   , OPTIONAL, STATIC  , OTHER, Sample, humid, id, 0),
     PB_LAST_FIELD
 };
 
