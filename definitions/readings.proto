@@ -43,7 +43,7 @@ message Sample {
     optional uint32 rain = 9;
 
     /**
-     * RAW protocol buffer data from AVR sensor
+     * RAW (not delimited) protocol buffer data from AVR sensor
      */
     optional bytes AVR  = 10;
 
