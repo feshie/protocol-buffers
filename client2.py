@@ -35,12 +35,13 @@ def readSerial():
 		s = ser.read(512)
 		if len(s)>0:
 			raw = processRawResponse(s)
-			try:
-				rs485 = rs485_message_pb2.Rs485()
-				rs485.ParseFromString(raw)
-				print rs485
-			except message.DecodeError:
-				print raw
+                        if raw is not None:
+                            try:
+                                    rs485 = rs485_message_pb2.Rs485()
+                                    rs485.ParseFromString(raw)
+                                    print rs485
+                            except message.DecodeError:
+                                    print raw
 	ser.close()
 
 def crc16_update(crc, a):
