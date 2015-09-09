@@ -15,7 +15,11 @@ connected = True
 def processRawResponse(s):
 	# s = unpack('B', s[0])
 	hex = bytearray.fromhex(s.encode('hex'))
-	
+
+        if (len(hex) < 4):
+            print "Invalid message size"
+            return None
+
 	if hex[0] == 0 and hex[1] == 255:
 		crc = computeCRC(hex[:len(hex) - 2])
 		crclow = crc & 0xff
