@@ -20,19 +20,23 @@ def processRawResponse(s):
             print "Invalid message size"
             return None
 
-	if hex[0] == 0 and hex[1] == 255:
-		crc = computeCRC(hex[:len(hex) - 2])
-		crclow = crc & 0xff
-		crchigh = (crc >> 8) & 0xff
+        if (hex[0] != 0):
+            print "Message not for us. Dest: %x" % hex[0]
+            return None
 
-		if crclow == hex[len(hex) - 2] and crchigh == hex[len(hex) - 1]:
-			return s[2:len(hex) - 2]
-		else:
-			print "Checksum error"
-			return None
-	else:
-		print "Invalid message header"
-		return None
+        if (hex[1] != 255):
+            print "Message not a response. Type: %d" % hex[2]
+            return None
+
+	crc = computeCRC(hex[:len(hex) - 2])
+        crclow = crc & 0xff
+        crchigh = (crc >> 8) & 0xff
+
+        if crclow == hex[len(hex) - 2] and crchigh == hex[len(hex) - 1]:
+            return s[2:len(hex) - 2]
+        else:
+            print "Checksum error"
+            return None
 
 def readSerial():
 	while connected:
