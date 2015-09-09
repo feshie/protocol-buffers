@@ -100,6 +100,7 @@ thread = threading.Thread(target = readSerial)
 thread.start()
 
 while True:
+    try:
 	x = raw_input('go: ')
 	if x == 'q':
 		connected = False
@@ -111,3 +112,9 @@ while True:
 		sendGetData(x.partition(' ')[2])
 	if x.startswith('l'):
 		sendListSensors(x.partition(' ')[2])
+    except KeyboardInterrupt:
+        connected = False
+        break
+    except:
+        connected = False
+        raise
