@@ -8,10 +8,10 @@ public final class Rs485Message {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface Rs485OrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface Rs485OrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Rs485)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required int32 dst = 1;
     /**
      * <code>required int32 dst = 1;</code>
      */
@@ -21,7 +21,6 @@ public final class Rs485Message {
      */
     int getDst();
 
-    // required .Rs485.Type type = 2 [default = READ];
     /**
      * <code>required .Rs485.Type type = 2 [default = READ];</code>
      */
@@ -31,7 +30,6 @@ public final class Rs485Message {
      */
     org.mountainsensing.pb.Rs485Message.Rs485.Type getType();
 
-    // optional .Rs485.Sensor sensor = 3;
     /**
      * <code>optional .Rs485.Sensor sensor = 3;</code>
      */
@@ -41,7 +39,6 @@ public final class Rs485Message {
      */
     org.mountainsensing.pb.Rs485Message.Rs485.Sensor getSensor();
 
-    // repeated .OwData ow = 4;
     /**
      * <code>repeated .OwData ow = 4;</code>
      */
@@ -66,7 +63,6 @@ public final class Rs485Message {
     org.mountainsensing.pb.Rs485Message.OwDataOrBuilder getOwOrBuilder(
         int index);
 
-    // repeated .AnalogData ad = 5;
     /**
      * <code>repeated .AnalogData ad = 5;</code>
      */
@@ -91,7 +87,6 @@ public final class Rs485Message {
     org.mountainsensing.pb.Rs485Message.AnalogDataOrBuilder getAdOrBuilder(
         int index);
 
-    // repeated .TempAccelData tad = 6;
     /**
      * <code>repeated .TempAccelData tad = 6;</code>
      */
@@ -120,8 +115,9 @@ public final class Rs485Message {
    * Protobuf type {@code Rs485}
    */
   public static final class Rs485 extends
-      com.google.protobuf.GeneratedMessage
-      implements Rs485OrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:Rs485)
+      Rs485OrBuilder {
     // Use Rs485.newBuilder() to construct.
     private Rs485(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -467,7 +463,6 @@ public final class Rs485Message {
     }
 
     private int bitField0_;
-    // required int32 dst = 1;
     public static final int DST_FIELD_NUMBER = 1;
     private int dst_;
     /**
@@ -483,7 +478,6 @@ public final class Rs485Message {
       return dst_;
     }
 
-    // required .Rs485.Type type = 2 [default = READ];
     public static final int TYPE_FIELD_NUMBER = 2;
     private org.mountainsensing.pb.Rs485Message.Rs485.Type type_;
     /**
@@ -499,7 +493,6 @@ public final class Rs485Message {
       return type_;
     }
 
-    // optional .Rs485.Sensor sensor = 3;
     public static final int SENSOR_FIELD_NUMBER = 3;
     private org.mountainsensing.pb.Rs485Message.Rs485.Sensor sensor_;
     /**
@@ -515,7 +508,6 @@ public final class Rs485Message {
       return sensor_;
     }
 
-    // repeated .OwData ow = 4;
     public static final int OW_FIELD_NUMBER = 4;
     private java.util.List<org.mountainsensing.pb.Rs485Message.OwData> ow_;
     /**
@@ -551,7 +543,6 @@ public final class Rs485Message {
       return ow_.get(index);
     }
 
-    // repeated .AnalogData ad = 5;
     public static final int AD_FIELD_NUMBER = 5;
     private java.util.List<org.mountainsensing.pb.Rs485Message.AnalogData> ad_;
     /**
@@ -587,7 +578,6 @@ public final class Rs485Message {
       return ad_.get(index);
     }
 
-    // repeated .TempAccelData tad = 6;
     public static final int TAD_FIELD_NUMBER = 6;
     private java.util.List<org.mountainsensing.pb.Rs485Message.TempAccelData> tad_;
     /**
@@ -634,7 +624,8 @@ public final class Rs485Message {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasDst()) {
         memoizedIsInitialized = 0;
@@ -802,8 +793,9 @@ public final class Rs485Message {
      * Protobuf type {@code Rs485}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.mountainsensing.pb.Rs485Message.Rs485OrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Rs485)
+        org.mountainsensing.pb.Rs485Message.Rs485OrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.mountainsensing.pb.Rs485Message.internal_static_Rs485_descriptor;
@@ -1086,7 +1078,6 @@ public final class Rs485Message {
       }
       private int bitField0_;
 
-      // required int32 dst = 1;
       private int dst_ ;
       /**
        * <code>required int32 dst = 1;</code>
@@ -1119,7 +1110,6 @@ public final class Rs485Message {
         return this;
       }
 
-      // required .Rs485.Type type = 2 [default = READ];
       private org.mountainsensing.pb.Rs485Message.Rs485.Type type_ = org.mountainsensing.pb.Rs485Message.Rs485.Type.READ;
       /**
        * <code>required .Rs485.Type type = 2 [default = READ];</code>
@@ -1155,7 +1145,6 @@ public final class Rs485Message {
         return this;
       }
 
-      // optional .Rs485.Sensor sensor = 3;
       private org.mountainsensing.pb.Rs485Message.Rs485.Sensor sensor_ = org.mountainsensing.pb.Rs485Message.Rs485.Sensor.OW;
       /**
        * <code>optional .Rs485.Sensor sensor = 3;</code>
@@ -1191,7 +1180,6 @@ public final class Rs485Message {
         return this;
       }
 
-      // repeated .OwData ow = 4;
       private java.util.List<org.mountainsensing.pb.Rs485Message.OwData> ow_ =
         java.util.Collections.emptyList();
       private void ensureOwIsMutable() {
@@ -1333,7 +1321,8 @@ public final class Rs485Message {
           java.lang.Iterable<? extends org.mountainsensing.pb.Rs485Message.OwData> values) {
         if (owBuilder_ == null) {
           ensureOwIsMutable();
-          super.addAll(values, ow_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, ow_);
           onChanged();
         } else {
           owBuilder_.addAllMessages(values);
@@ -1431,7 +1420,6 @@ public final class Rs485Message {
         return owBuilder_;
       }
 
-      // repeated .AnalogData ad = 5;
       private java.util.List<org.mountainsensing.pb.Rs485Message.AnalogData> ad_ =
         java.util.Collections.emptyList();
       private void ensureAdIsMutable() {
@@ -1573,7 +1561,8 @@ public final class Rs485Message {
           java.lang.Iterable<? extends org.mountainsensing.pb.Rs485Message.AnalogData> values) {
         if (adBuilder_ == null) {
           ensureAdIsMutable();
-          super.addAll(values, ad_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, ad_);
           onChanged();
         } else {
           adBuilder_.addAllMessages(values);
@@ -1671,7 +1660,6 @@ public final class Rs485Message {
         return adBuilder_;
       }
 
-      // repeated .TempAccelData tad = 6;
       private java.util.List<org.mountainsensing.pb.Rs485Message.TempAccelData> tad_ =
         java.util.Collections.emptyList();
       private void ensureTadIsMutable() {
@@ -1813,7 +1801,8 @@ public final class Rs485Message {
           java.lang.Iterable<? extends org.mountainsensing.pb.Rs485Message.TempAccelData> values) {
         if (tadBuilder_ == null) {
           ensureTadIsMutable();
-          super.addAll(values, tad_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, tad_);
           onChanged();
         } else {
           tadBuilder_.addAllMessages(values);
@@ -1922,10 +1911,10 @@ public final class Rs485Message {
     // @@protoc_insertion_point(class_scope:Rs485)
   }
 
-  public interface OwDataOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface OwDataOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:OwData)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required int32 id = 1;
     /**
      * <code>required int32 id = 1;</code>
      */
@@ -1935,7 +1924,6 @@ public final class Rs485Message {
      */
     int getId();
 
-    // required float value = 2;
     /**
      * <code>required float value = 2;</code>
      */
@@ -1949,8 +1937,9 @@ public final class Rs485Message {
    * Protobuf type {@code OwData}
    */
   public static final class OwData extends
-      com.google.protobuf.GeneratedMessage
-      implements OwDataOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:OwData)
+      OwDataOrBuilder {
     // Use OwData.newBuilder() to construct.
     private OwData(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -2046,7 +2035,6 @@ public final class Rs485Message {
     }
 
     private int bitField0_;
-    // required int32 id = 1;
     public static final int ID_FIELD_NUMBER = 1;
     private int id_;
     /**
@@ -2062,7 +2050,6 @@ public final class Rs485Message {
       return id_;
     }
 
-    // required float value = 2;
     public static final int VALUE_FIELD_NUMBER = 2;
     private float value_;
     /**
@@ -2085,7 +2072,8 @@ public final class Rs485Message {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasId()) {
         memoizedIsInitialized = 0;
@@ -2207,8 +2195,9 @@ public final class Rs485Message {
      * Protobuf type {@code OwData}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.mountainsensing.pb.Rs485Message.OwDataOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:OwData)
+        org.mountainsensing.pb.Rs485Message.OwDataOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.mountainsensing.pb.Rs485Message.internal_static_OwData_descriptor;
@@ -2338,7 +2327,6 @@ public final class Rs485Message {
       }
       private int bitField0_;
 
-      // required int32 id = 1;
       private int id_ ;
       /**
        * <code>required int32 id = 1;</code>
@@ -2371,7 +2359,6 @@ public final class Rs485Message {
         return this;
       }
 
-      // required float value = 2;
       private float value_ ;
       /**
        * <code>required float value = 2;</code>
@@ -2415,10 +2402,10 @@ public final class Rs485Message {
     // @@protoc_insertion_point(class_scope:OwData)
   }
 
-  public interface AnalogDataOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface AnalogDataOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:AnalogData)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required int32 adc = 1;
     /**
      * <code>required int32 adc = 1;</code>
      */
@@ -2428,7 +2415,6 @@ public final class Rs485Message {
      */
     int getAdc();
 
-    // required float value = 2;
     /**
      * <code>required float value = 2;</code>
      */
@@ -2442,8 +2428,9 @@ public final class Rs485Message {
    * Protobuf type {@code AnalogData}
    */
   public static final class AnalogData extends
-      com.google.protobuf.GeneratedMessage
-      implements AnalogDataOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:AnalogData)
+      AnalogDataOrBuilder {
     // Use AnalogData.newBuilder() to construct.
     private AnalogData(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -2539,7 +2526,6 @@ public final class Rs485Message {
     }
 
     private int bitField0_;
-    // required int32 adc = 1;
     public static final int ADC_FIELD_NUMBER = 1;
     private int adc_;
     /**
@@ -2555,7 +2541,6 @@ public final class Rs485Message {
       return adc_;
     }
 
-    // required float value = 2;
     public static final int VALUE_FIELD_NUMBER = 2;
     private float value_;
     /**
@@ -2578,7 +2563,8 @@ public final class Rs485Message {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasAdc()) {
         memoizedIsInitialized = 0;
@@ -2700,8 +2686,9 @@ public final class Rs485Message {
      * Protobuf type {@code AnalogData}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.mountainsensing.pb.Rs485Message.AnalogDataOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:AnalogData)
+        org.mountainsensing.pb.Rs485Message.AnalogDataOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.mountainsensing.pb.Rs485Message.internal_static_AnalogData_descriptor;
@@ -2831,7 +2818,6 @@ public final class Rs485Message {
       }
       private int bitField0_;
 
-      // required int32 adc = 1;
       private int adc_ ;
       /**
        * <code>required int32 adc = 1;</code>
@@ -2864,7 +2850,6 @@ public final class Rs485Message {
         return this;
       }
 
-      // required float value = 2;
       private float value_ ;
       /**
        * <code>required float value = 2;</code>
@@ -2908,10 +2893,10 @@ public final class Rs485Message {
     // @@protoc_insertion_point(class_scope:AnalogData)
   }
 
-  public interface TempAccelDataOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface TempAccelDataOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:TempAccelData)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required int32 id = 1;
     /**
      * <code>required int32 id = 1;</code>
      */
@@ -2921,7 +2906,6 @@ public final class Rs485Message {
      */
     int getId();
 
-    // required float pitch = 2;
     /**
      * <code>required float pitch = 2;</code>
      */
@@ -2931,7 +2915,6 @@ public final class Rs485Message {
      */
     float getPitch();
 
-    // required float roll = 3;
     /**
      * <code>required float roll = 3;</code>
      */
@@ -2941,7 +2924,6 @@ public final class Rs485Message {
      */
     float getRoll();
 
-    // required float temp = 4;
     /**
      * <code>required float temp = 4;</code>
      */
@@ -2955,8 +2937,9 @@ public final class Rs485Message {
    * Protobuf type {@code TempAccelData}
    */
   public static final class TempAccelData extends
-      com.google.protobuf.GeneratedMessage
-      implements TempAccelDataOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:TempAccelData)
+      TempAccelDataOrBuilder {
     // Use TempAccelData.newBuilder() to construct.
     private TempAccelData(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -3062,7 +3045,6 @@ public final class Rs485Message {
     }
 
     private int bitField0_;
-    // required int32 id = 1;
     public static final int ID_FIELD_NUMBER = 1;
     private int id_;
     /**
@@ -3078,7 +3060,6 @@ public final class Rs485Message {
       return id_;
     }
 
-    // required float pitch = 2;
     public static final int PITCH_FIELD_NUMBER = 2;
     private float pitch_;
     /**
@@ -3094,7 +3075,6 @@ public final class Rs485Message {
       return pitch_;
     }
 
-    // required float roll = 3;
     public static final int ROLL_FIELD_NUMBER = 3;
     private float roll_;
     /**
@@ -3110,7 +3090,6 @@ public final class Rs485Message {
       return roll_;
     }
 
-    // required float temp = 4;
     public static final int TEMP_FIELD_NUMBER = 4;
     private float temp_;
     /**
@@ -3135,7 +3114,8 @@ public final class Rs485Message {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasId()) {
         memoizedIsInitialized = 0;
@@ -3279,8 +3259,9 @@ public final class Rs485Message {
      * Protobuf type {@code TempAccelData}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.mountainsensing.pb.Rs485Message.TempAccelDataOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:TempAccelData)
+        org.mountainsensing.pb.Rs485Message.TempAccelDataOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.mountainsensing.pb.Rs485Message.internal_static_TempAccelData_descriptor;
@@ -3436,7 +3417,6 @@ public final class Rs485Message {
       }
       private int bitField0_;
 
-      // required int32 id = 1;
       private int id_ ;
       /**
        * <code>required int32 id = 1;</code>
@@ -3469,7 +3449,6 @@ public final class Rs485Message {
         return this;
       }
 
-      // required float pitch = 2;
       private float pitch_ ;
       /**
        * <code>required float pitch = 2;</code>
@@ -3502,7 +3481,6 @@ public final class Rs485Message {
         return this;
       }
 
-      // required float roll = 3;
       private float roll_ ;
       /**
        * <code>required float roll = 3;</code>
@@ -3535,7 +3513,6 @@ public final class Rs485Message {
         return this;
       }
 
-      // required float temp = 4;
       private float temp_ ;
       /**
        * <code>required float temp = 4;</code>
@@ -3579,22 +3556,22 @@ public final class Rs485Message {
     // @@protoc_insertion_point(class_scope:TempAccelData)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Rs485_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_Rs485_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_OwData_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_OwData_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_AnalogData_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_AnalogData_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_TempAccelData_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -3622,41 +3599,41 @@ public final class Rs485Message {
       "ountainsensing.pb"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_Rs485_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_Rs485_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_Rs485_descriptor,
-              new java.lang.String[] { "Dst", "Type", "Sensor", "Ow", "Ad", "Tad", });
-          internal_static_OwData_descriptor =
-            getDescriptor().getMessageTypes().get(1);
-          internal_static_OwData_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_OwData_descriptor,
-              new java.lang.String[] { "Id", "Value", });
-          internal_static_AnalogData_descriptor =
-            getDescriptor().getMessageTypes().get(2);
-          internal_static_AnalogData_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_AnalogData_descriptor,
-              new java.lang.String[] { "Adc", "Value", });
-          internal_static_TempAccelData_descriptor =
-            getDescriptor().getMessageTypes().get(3);
-          internal_static_TempAccelData_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_TempAccelData_descriptor,
-              new java.lang.String[] { "Id", "Pitch", "Roll", "Temp", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
+    internal_static_Rs485_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_Rs485_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_Rs485_descriptor,
+        new java.lang.String[] { "Dst", "Type", "Sensor", "Ow", "Ad", "Tad", });
+    internal_static_OwData_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_OwData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_OwData_descriptor,
+        new java.lang.String[] { "Id", "Value", });
+    internal_static_AnalogData_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_AnalogData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_AnalogData_descriptor,
+        new java.lang.String[] { "Adc", "Value", });
+    internal_static_TempAccelData_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_TempAccelData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_TempAccelData_descriptor,
+        new java.lang.String[] { "Id", "Pitch", "Roll", "Temp", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

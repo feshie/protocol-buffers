@@ -28,13 +28,15 @@ typedef struct _SensorConfig {
     uint32_t avrIDs[8];
     uint64_t interval;
     SensorConfig_RoutingMode routingMode;
+    bool has_powerID;
+    uint32_t powerID;
 } SensorConfig;
 
 /* Default values for struct fields */
 
 /* Initializer values for message structs */
-#define SensorConfig_init_default                {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0}, 0, (SensorConfig_RoutingMode)0}
-#define SensorConfig_init_zero                   {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0}, 0, (SensorConfig_RoutingMode)0}
+#define SensorConfig_init_default                {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0}, 0, (SensorConfig_RoutingMode)0, false, 0}
+#define SensorConfig_init_zero                   {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0}, 0, (SensorConfig_RoutingMode)0, false, 0}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define SensorConfig_hasADC1_tag                 1
@@ -43,12 +45,13 @@ typedef struct _SensorConfig {
 #define SensorConfig_avrIDs_tag                  4
 #define SensorConfig_interval_tag                5
 #define SensorConfig_routingMode_tag             6
+#define SensorConfig_powerID_tag                 7
 
 /* Struct field encoding specification for nanopb */
-extern const pb_field_t SensorConfig_fields[7];
+extern const pb_field_t SensorConfig_fields[8];
 
 /* Maximum encoded size of messages (where known) */
-#define SensorConfig_size                        71
+#define SensorConfig_size                        77
 
 /* Message IDs (where set with "msgid" option) */
 #ifdef PB_MSGID

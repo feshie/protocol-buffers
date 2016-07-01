@@ -43,4 +43,9 @@ message SensorConfig {
      * LEAF makes the node accessible over the network, but prohibits it from having children routes.
      */
     required RoutingMode routingMode = 6;
+
+    /**
+     * ID of the power module connected to the node over RS485
+     */
+    optional uint32 powerID = 7;
 }

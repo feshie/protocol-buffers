@@ -8,10 +8,10 @@ public final class Settings {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface SensorConfigOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface SensorConfigOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SensorConfig)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required bool hasADC1 = 1;
     /**
      * <code>required bool hasADC1 = 1;</code>
      *
@@ -33,7 +33,6 @@ public final class Settings {
      */
     boolean getHasADC1();
 
-    // required bool hasADC2 = 2;
     /**
      * <code>required bool hasADC2 = 2;</code>
      *
@@ -55,7 +54,6 @@ public final class Settings {
      */
     boolean getHasADC2();
 
-    // required bool hasRain = 3;
     /**
      * <code>required bool hasRain = 3;</code>
      *
@@ -77,7 +75,6 @@ public final class Settings {
      */
     boolean getHasRain();
 
-    // repeated uint32 avrIDs = 4;
     /**
      * <code>repeated uint32 avrIDs = 4;</code>
      *
@@ -106,7 +103,6 @@ public final class Settings {
      */
     int getAvrIDs(int index);
 
-    // required uint64 interval = 5;
     /**
      * <code>required uint64 interval = 5;</code>
      *
@@ -126,7 +122,6 @@ public final class Settings {
      */
     long getInterval();
 
-    // required .SensorConfig.RoutingMode routingMode = 6;
     /**
      * <code>required .SensorConfig.RoutingMode routingMode = 6;</code>
      *
@@ -151,13 +146,33 @@ public final class Settings {
      * </pre>
      */
     org.mountainsensing.pb.Settings.SensorConfig.RoutingMode getRoutingMode();
+
+    /**
+     * <code>optional uint32 powerID = 7;</code>
+     *
+     * <pre>
+     **
+     * ID of the power module connected to the node over RS485
+     * </pre>
+     */
+    boolean hasPowerID();
+    /**
+     * <code>optional uint32 powerID = 7;</code>
+     *
+     * <pre>
+     **
+     * ID of the power module connected to the node over RS485
+     * </pre>
+     */
+    int getPowerID();
   }
   /**
    * Protobuf type {@code SensorConfig}
    */
   public static final class SensorConfig extends
-      com.google.protobuf.GeneratedMessage
-      implements SensorConfigOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:SensorConfig)
+      SensorConfigOrBuilder {
     // Use SensorConfig.newBuilder() to construct.
     private SensorConfig(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -253,6 +268,11 @@ public final class Settings {
                 bitField0_ |= 0x00000010;
                 routingMode_ = value;
               }
+              break;
+            }
+            case 56: {
+              bitField0_ |= 0x00000020;
+              powerID_ = input.readUInt32();
               break;
             }
           }
@@ -389,7 +409,6 @@ public final class Settings {
     }
 
     private int bitField0_;
-    // required bool hasADC1 = 1;
     public static final int HASADC1_FIELD_NUMBER = 1;
     private boolean hasADC1_;
     /**
@@ -417,7 +436,6 @@ public final class Settings {
       return hasADC1_;
     }
 
-    // required bool hasADC2 = 2;
     public static final int HASADC2_FIELD_NUMBER = 2;
     private boolean hasADC2_;
     /**
@@ -445,7 +463,6 @@ public final class Settings {
       return hasADC2_;
     }
 
-    // required bool hasRain = 3;
     public static final int HASRAIN_FIELD_NUMBER = 3;
     private boolean hasRain_;
     /**
@@ -473,7 +490,6 @@ public final class Settings {
       return hasRain_;
     }
 
-    // repeated uint32 avrIDs = 4;
     public static final int AVRIDS_FIELD_NUMBER = 4;
     private java.util.List<java.lang.Integer> avrIDs_;
     /**
@@ -511,7 +527,6 @@ public final class Settings {
       return avrIDs_.get(index);
     }
 
-    // required uint64 interval = 5;
     public static final int INTERVAL_FIELD_NUMBER = 5;
     private long interval_;
     /**
@@ -537,7 +552,6 @@ public final class Settings {
       return interval_;
     }
 
-    // required .SensorConfig.RoutingMode routingMode = 6;
     public static final int ROUTINGMODE_FIELD_NUMBER = 6;
     private org.mountainsensing.pb.Settings.SensorConfig.RoutingMode routingMode_;
     /**
@@ -569,6 +583,31 @@ public final class Settings {
       return routingMode_;
     }
 
+    public static final int POWERID_FIELD_NUMBER = 7;
+    private int powerID_;
+    /**
+     * <code>optional uint32 powerID = 7;</code>
+     *
+     * <pre>
+     **
+     * ID of the power module connected to the node over RS485
+     * </pre>
+     */
+    public boolean hasPowerID() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional uint32 powerID = 7;</code>
+     *
+     * <pre>
+     **
+     * ID of the power module connected to the node over RS485
+     * </pre>
+     */
+    public int getPowerID() {
+      return powerID_;
+    }
+
     private void initFields() {
       hasADC1_ = false;
       hasADC2_ = false;
@@ -576,11 +615,13 @@ public final class Settings {
       avrIDs_ = java.util.Collections.emptyList();
       interval_ = 0L;
       routingMode_ = org.mountainsensing.pb.Settings.SensorConfig.RoutingMode.MESH;
+      powerID_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasHasADC1()) {
         memoizedIsInitialized = 0;
@@ -627,6 +668,9 @@ public final class Settings {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeEnum(6, routingMode_.getNumber());
       }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeUInt32(7, powerID_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -664,6 +708,10 @@ public final class Settings {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(6, routingMode_.getNumber());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(7, powerID_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -747,8 +795,9 @@ public final class Settings {
      * Protobuf type {@code SensorConfig}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.mountainsensing.pb.Settings.SensorConfigOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SensorConfig)
+        org.mountainsensing.pb.Settings.SensorConfigOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.mountainsensing.pb.Settings.internal_static_SensorConfig_descriptor;
@@ -793,6 +842,8 @@ public final class Settings {
         bitField0_ = (bitField0_ & ~0x00000010);
         routingMode_ = org.mountainsensing.pb.Settings.SensorConfig.RoutingMode.MESH;
         bitField0_ = (bitField0_ & ~0x00000020);
+        powerID_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
 
@@ -846,6 +897,10 @@ public final class Settings {
           to_bitField0_ |= 0x00000010;
         }
         result.routingMode_ = routingMode_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.powerID_ = powerID_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -886,6 +941,9 @@ public final class Settings {
         }
         if (other.hasRoutingMode()) {
           setRoutingMode(other.getRoutingMode());
+        }
+        if (other.hasPowerID()) {
+          setPowerID(other.getPowerID());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -934,7 +992,6 @@ public final class Settings {
       }
       private int bitField0_;
 
-      // required bool hasADC1 = 1;
       private boolean hasADC1_ ;
       /**
        * <code>required bool hasADC1 = 1;</code>
@@ -991,7 +1048,6 @@ public final class Settings {
         return this;
       }
 
-      // required bool hasADC2 = 2;
       private boolean hasADC2_ ;
       /**
        * <code>required bool hasADC2 = 2;</code>
@@ -1048,7 +1104,6 @@ public final class Settings {
         return this;
       }
 
-      // required bool hasRain = 3;
       private boolean hasRain_ ;
       /**
        * <code>required bool hasRain = 3;</code>
@@ -1105,7 +1160,6 @@ public final class Settings {
         return this;
       }
 
-      // repeated uint32 avrIDs = 4;
       private java.util.List<java.lang.Integer> avrIDs_ = java.util.Collections.emptyList();
       private void ensureAvrIDsIsMutable() {
         if (!((bitField0_ & 0x00000008) == 0x00000008)) {
@@ -1187,7 +1241,8 @@ public final class Settings {
       public Builder addAllAvrIDs(
           java.lang.Iterable<? extends java.lang.Integer> values) {
         ensureAvrIDsIsMutable();
-        super.addAll(values, avrIDs_);
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, avrIDs_);
         onChanged();
         return this;
       }
@@ -1206,7 +1261,6 @@ public final class Settings {
         return this;
       }
 
-      // required uint64 interval = 5;
       private long interval_ ;
       /**
        * <code>required uint64 interval = 5;</code>
@@ -1259,7 +1313,6 @@ public final class Settings {
         return this;
       }
 
-      // required .SensorConfig.RoutingMode routingMode = 6;
       private org.mountainsensing.pb.Settings.SensorConfig.RoutingMode routingMode_ = org.mountainsensing.pb.Settings.SensorConfig.RoutingMode.MESH;
       /**
        * <code>required .SensorConfig.RoutingMode routingMode = 6;</code>
@@ -1327,6 +1380,58 @@ public final class Settings {
         return this;
       }
 
+      private int powerID_ ;
+      /**
+       * <code>optional uint32 powerID = 7;</code>
+       *
+       * <pre>
+       **
+       * ID of the power module connected to the node over RS485
+       * </pre>
+       */
+      public boolean hasPowerID() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>optional uint32 powerID = 7;</code>
+       *
+       * <pre>
+       **
+       * ID of the power module connected to the node over RS485
+       * </pre>
+       */
+      public int getPowerID() {
+        return powerID_;
+      }
+      /**
+       * <code>optional uint32 powerID = 7;</code>
+       *
+       * <pre>
+       **
+       * ID of the power module connected to the node over RS485
+       * </pre>
+       */
+      public Builder setPowerID(int value) {
+        bitField0_ |= 0x00000040;
+        powerID_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 powerID = 7;</code>
+       *
+       * <pre>
+       **
+       * ID of the power module connected to the node over RS485
+       * </pre>
+       */
+      public Builder clearPowerID() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        powerID_ = 0;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:SensorConfig)
     }
 
@@ -1338,7 +1443,7 @@ public final class Settings {
     // @@protoc_insertion_point(class_scope:SensorConfig)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_SensorConfig_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -1352,31 +1457,32 @@ public final class Settings {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016settings.proto\"\303\001\n\014SensorConfig\022\017\n\007has" +
+      "\n\016settings.proto\"\324\001\n\014SensorConfig\022\017\n\007has" +
       "ADC1\030\001 \002(\010\022\017\n\007hasADC2\030\002 \002(\010\022\017\n\007hasRain\030\003" +
       " \002(\010\022\016\n\006avrIDs\030\004 \003(\r\022\020\n\010interval\030\005 \002(\004\022." +
       "\n\013routingMode\030\006 \002(\0162\031.SensorConfig.Routi" +
-      "ngMode\".\n\013RoutingMode\022\010\n\004MESH\020\000\022\013\n\007FEATH" +
-      "ER\020\001\022\010\n\004LEAF\020\002B\030\n\026org.mountainsensing.pb"
+      "ngMode\022\017\n\007powerID\030\007 \001(\r\".\n\013RoutingMode\022\010" +
+      "\n\004MESH\020\000\022\013\n\007FEATHER\020\001\022\010\n\004LEAF\020\002B\030\n\026org.m" +
+      "ountainsensing.pb"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_SensorConfig_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_SensorConfig_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_SensorConfig_descriptor,
-              new java.lang.String[] { "HasADC1", "HasADC2", "HasRain", "AvrIDs", "Interval", "RoutingMode", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
+    internal_static_SensorConfig_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_SensorConfig_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_SensorConfig_descriptor,
+        new java.lang.String[] { "HasADC1", "HasADC2", "HasRain", "AvrIDs", "Interval", "RoutingMode", "PowerID", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

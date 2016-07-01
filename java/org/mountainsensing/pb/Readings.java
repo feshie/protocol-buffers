@@ -8,10 +8,10 @@ public final class Readings {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface SampleOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface SampleOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Sample)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required fixed32 time = 1;
     /**
      * <code>required fixed32 time = 1;</code>
      *
@@ -31,7 +31,6 @@ public final class Readings {
      */
     int getTime();
 
-    // optional float batt = 2;
     /**
      * <code>optional float batt = 2;</code>
      *
@@ -51,7 +50,6 @@ public final class Readings {
      */
     float getBatt();
 
-    // optional float temp = 3;
     /**
      * <code>optional float temp = 3;</code>
      *
@@ -71,7 +69,6 @@ public final class Readings {
      */
     float getTemp();
 
-    // optional sint32 accX = 4;
     /**
      * <code>optional sint32 accX = 4;</code>
      *
@@ -91,7 +88,6 @@ public final class Readings {
      */
     int getAccX();
 
-    // optional sint32 accY = 5;
     /**
      * <code>optional sint32 accY = 5;</code>
      */
@@ -101,7 +97,6 @@ public final class Readings {
      */
     int getAccY();
 
-    // optional sint32 accZ = 6;
     /**
      * <code>optional sint32 accZ = 6;</code>
      */
@@ -111,7 +106,6 @@ public final class Readings {
      */
     int getAccZ();
 
-    // optional uint32 ADC1 = 7;
     /**
      * <code>optional uint32 ADC1 = 7;</code>
      *
@@ -131,7 +125,6 @@ public final class Readings {
      */
     int getADC1();
 
-    // optional uint32 ADC2 = 8;
     /**
      * <code>optional uint32 ADC2 = 8;</code>
      *
@@ -151,7 +144,6 @@ public final class Readings {
      */
     int getADC2();
 
-    // optional uint32 rain = 9;
     /**
      * <code>optional uint32 rain = 9;</code>
      *
@@ -171,13 +163,12 @@ public final class Readings {
      */
     int getRain();
 
-    // optional bytes AVR = 10;
     /**
      * <code>optional bytes AVR = 10;</code>
      *
      * <pre>
      **
-     * RAW protocol buffer data from AVR sensor
+     * RAW (not delimited) protocol buffer data from AVR sensor
      * </pre>
      */
     boolean hasAVR();
@@ -186,12 +177,11 @@ public final class Readings {
      *
      * <pre>
      **
-     * RAW protocol buffer data from AVR sensor
+     * RAW (not delimited) protocol buffer data from AVR sensor
      * </pre>
      */
     com.google.protobuf.ByteString getAVR();
 
-    // required uint32 id = 11;
     /**
      * <code>required uint32 id = 11;</code>
      *
@@ -213,7 +203,6 @@ public final class Readings {
      */
     int getId();
 
-    // optional float humid = 12;
     /**
      * <code>optional float humid = 12;</code>
      *
@@ -242,8 +231,9 @@ public final class Readings {
    * </pre>
    */
   public static final class Sample extends
-      com.google.protobuf.GeneratedMessage
-      implements SampleOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:Sample)
+      SampleOrBuilder {
     // Use Sample.newBuilder() to construct.
     private Sample(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -389,7 +379,6 @@ public final class Readings {
     }
 
     private int bitField0_;
-    // required fixed32 time = 1;
     public static final int TIME_FIELD_NUMBER = 1;
     private int time_;
     /**
@@ -415,7 +404,6 @@ public final class Readings {
       return time_;
     }
 
-    // optional float batt = 2;
     public static final int BATT_FIELD_NUMBER = 2;
     private float batt_;
     /**
@@ -441,7 +429,6 @@ public final class Readings {
       return batt_;
     }
 
-    // optional float temp = 3;
     public static final int TEMP_FIELD_NUMBER = 3;
     private float temp_;
     /**
@@ -467,7 +454,6 @@ public final class Readings {
       return temp_;
     }
 
-    // optional sint32 accX = 4;
     public static final int ACCX_FIELD_NUMBER = 4;
     private int accX_;
     /**
@@ -493,7 +479,6 @@ public final class Readings {
       return accX_;
     }
 
-    // optional sint32 accY = 5;
     public static final int ACCY_FIELD_NUMBER = 5;
     private int accY_;
     /**
@@ -509,7 +494,6 @@ public final class Readings {
       return accY_;
     }
 
-    // optional sint32 accZ = 6;
     public static final int ACCZ_FIELD_NUMBER = 6;
     private int accZ_;
     /**
@@ -525,7 +509,6 @@ public final class Readings {
       return accZ_;
     }
 
-    // optional uint32 ADC1 = 7;
     public static final int ADC1_FIELD_NUMBER = 7;
     private int aDC1_;
     /**
@@ -551,7 +534,6 @@ public final class Readings {
       return aDC1_;
     }
 
-    // optional uint32 ADC2 = 8;
     public static final int ADC2_FIELD_NUMBER = 8;
     private int aDC2_;
     /**
@@ -577,7 +559,6 @@ public final class Readings {
       return aDC2_;
     }
 
-    // optional uint32 rain = 9;
     public static final int RAIN_FIELD_NUMBER = 9;
     private int rain_;
     /**
@@ -603,7 +584,6 @@ public final class Readings {
       return rain_;
     }
 
-    // optional bytes AVR = 10;
     public static final int AVR_FIELD_NUMBER = 10;
     private com.google.protobuf.ByteString aVR_;
     /**
@@ -611,7 +591,7 @@ public final class Readings {
      *
      * <pre>
      **
-     * RAW protocol buffer data from AVR sensor
+     * RAW (not delimited) protocol buffer data from AVR sensor
      * </pre>
      */
     public boolean hasAVR() {
@@ -622,14 +602,13 @@ public final class Readings {
      *
      * <pre>
      **
-     * RAW protocol buffer data from AVR sensor
+     * RAW (not delimited) protocol buffer data from AVR sensor
      * </pre>
      */
     public com.google.protobuf.ByteString getAVR() {
       return aVR_;
     }
 
-    // required uint32 id = 11;
     public static final int ID_FIELD_NUMBER = 11;
     private int id_;
     /**
@@ -657,7 +636,6 @@ public final class Readings {
       return id_;
     }
 
-    // optional float humid = 12;
     public static final int HUMID_FIELD_NUMBER = 12;
     private float humid_;
     /**
@@ -700,7 +678,8 @@ public final class Readings {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasTime()) {
         memoizedIsInitialized = 0;
@@ -897,8 +876,9 @@ public final class Readings {
      * </pre>
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.mountainsensing.pb.Readings.SampleOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Sample)
+        org.mountainsensing.pb.Readings.SampleOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.mountainsensing.pb.Readings.internal_static_Sample_descriptor;
@@ -1118,7 +1098,6 @@ public final class Readings {
       }
       private int bitField0_;
 
-      // required fixed32 time = 1;
       private int time_ ;
       /**
        * <code>required fixed32 time = 1;</code>
@@ -1171,7 +1150,6 @@ public final class Readings {
         return this;
       }
 
-      // optional float batt = 2;
       private float batt_ ;
       /**
        * <code>optional float batt = 2;</code>
@@ -1224,7 +1202,6 @@ public final class Readings {
         return this;
       }
 
-      // optional float temp = 3;
       private float temp_ ;
       /**
        * <code>optional float temp = 3;</code>
@@ -1277,7 +1254,6 @@ public final class Readings {
         return this;
       }
 
-      // optional sint32 accX = 4;
       private int accX_ ;
       /**
        * <code>optional sint32 accX = 4;</code>
@@ -1330,7 +1306,6 @@ public final class Readings {
         return this;
       }
 
-      // optional sint32 accY = 5;
       private int accY_ ;
       /**
        * <code>optional sint32 accY = 5;</code>
@@ -1363,7 +1338,6 @@ public final class Readings {
         return this;
       }
 
-      // optional sint32 accZ = 6;
       private int accZ_ ;
       /**
        * <code>optional sint32 accZ = 6;</code>
@@ -1396,7 +1370,6 @@ public final class Readings {
         return this;
       }
 
-      // optional uint32 ADC1 = 7;
       private int aDC1_ ;
       /**
        * <code>optional uint32 ADC1 = 7;</code>
@@ -1449,7 +1422,6 @@ public final class Readings {
         return this;
       }
 
-      // optional uint32 ADC2 = 8;
       private int aDC2_ ;
       /**
        * <code>optional uint32 ADC2 = 8;</code>
@@ -1502,7 +1474,6 @@ public final class Readings {
         return this;
       }
 
-      // optional uint32 rain = 9;
       private int rain_ ;
       /**
        * <code>optional uint32 rain = 9;</code>
@@ -1555,14 +1526,13 @@ public final class Readings {
         return this;
       }
 
-      // optional bytes AVR = 10;
       private com.google.protobuf.ByteString aVR_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes AVR = 10;</code>
        *
        * <pre>
        **
-       * RAW protocol buffer data from AVR sensor
+       * RAW (not delimited) protocol buffer data from AVR sensor
        * </pre>
        */
       public boolean hasAVR() {
@@ -1573,7 +1543,7 @@ public final class Readings {
        *
        * <pre>
        **
-       * RAW protocol buffer data from AVR sensor
+       * RAW (not delimited) protocol buffer data from AVR sensor
        * </pre>
        */
       public com.google.protobuf.ByteString getAVR() {
@@ -1584,7 +1554,7 @@ public final class Readings {
        *
        * <pre>
        **
-       * RAW protocol buffer data from AVR sensor
+       * RAW (not delimited) protocol buffer data from AVR sensor
        * </pre>
        */
       public Builder setAVR(com.google.protobuf.ByteString value) {
@@ -1601,7 +1571,7 @@ public final class Readings {
        *
        * <pre>
        **
-       * RAW protocol buffer data from AVR sensor
+       * RAW (not delimited) protocol buffer data from AVR sensor
        * </pre>
        */
       public Builder clearAVR() {
@@ -1611,7 +1581,6 @@ public final class Readings {
         return this;
       }
 
-      // required uint32 id = 11;
       private int id_ ;
       /**
        * <code>required uint32 id = 11;</code>
@@ -1668,7 +1637,6 @@ public final class Readings {
         return this;
       }
 
-      // optional float humid = 12;
       private float humid_ ;
       /**
        * <code>optional float humid = 12;</code>
@@ -1732,7 +1700,7 @@ public final class Readings {
     // @@protoc_insertion_point(class_scope:Sample)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Sample_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -1754,23 +1722,23 @@ public final class Readings {
       ".mountainsensing.pb"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_Sample_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_Sample_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_Sample_descriptor,
-              new java.lang.String[] { "Time", "Batt", "Temp", "AccX", "AccY", "AccZ", "ADC1", "ADC2", "Rain", "AVR", "Id", "Humid", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
+    internal_static_Sample_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_Sample_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_Sample_descriptor,
+        new java.lang.String[] { "Time", "Batt", "Temp", "AccX", "AccY", "AccZ", "ADC1", "ADC2", "Rain", "AVR", "Id", "Humid", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
