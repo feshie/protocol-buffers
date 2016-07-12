@@ -9,8 +9,11 @@
 
 
 
-const pb_field_t PowerInfo_fields[2] = {
-    PB_FIELD(  1, FLOAT   , OPTIONAL, STATIC  , FIRST, PowerInfo, batt, batt, 0),
+const pb_field_t PowerInfo_fields[5] = {
+    PB_FIELD(  1, UINT32  , OPTIONAL, STATIC  , FIRST, PowerInfo, batt, batt, 0),
+    PB_FIELD(  2, INT32   , OPTIONAL, STATIC  , OTHER, PowerInfo, current, batt, 0),
+    PB_FIELD(  3, UINT32  , OPTIONAL, STATIC  , OTHER, PowerInfo, soc, current, 0),
+    PB_FIELD(  4, UINT32  , OPTIONAL, STATIC  , OTHER, PowerInfo, mppt, soc, 0),
     PB_LAST_FIELD
 };
 

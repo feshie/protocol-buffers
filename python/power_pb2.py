@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='power.proto',
   package='',
-  serialized_pb=_b('\n\x0bpower.proto\"\x19\n\tPowerInfo\x12\x0c\n\x04\x62\x61tt\x18\x01 \x01(\x02\x42\x18\n\x16org.mountainsensing.pb')
+  serialized_pb=_b('\n\x0bpower.proto\"E\n\tPowerInfo\x12\x0c\n\x04\x62\x61tt\x18\x01 \x01(\r\x12\x0f\n\x07\x63urrent\x18\x02 \x01(\x05\x12\x0b\n\x03soc\x18\x03 \x01(\r\x12\x0c\n\x04mppt\x18\x04 \x01(\rB\x18\n\x16org.mountainsensing.pb')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -34,7 +34,28 @@ _POWERINFO = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='batt', full_name='PowerInfo.batt', index=0,
-      number=1, type=2, cpp_type=6, label=1,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='current', full_name='PowerInfo.current', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='soc', full_name='PowerInfo.soc', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='mppt', full_name='PowerInfo.mppt', index=3,
+      number=4, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -51,7 +72,7 @@ _POWERINFO = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=15,
-  serialized_end=40,
+  serialized_end=84,
 )
 
 DESCRIPTOR.message_types_by_name['PowerInfo'] = _POWERINFO

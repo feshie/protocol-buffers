@@ -6,9 +6,22 @@ option java_package = "org.mountainsensing.pb";
 message PowerInfo {
     
     /**
-     * Battery voltage in Volts
+     * Battery voltage, mV = batt * 0.625
      */
-    optional float batt = 1;
+    optional uint32 batt = 1;
 
-    // TODO
+    /**
+     * Charge current into the battery from the solar panel, mA = current * 0.15625
+     */
+    optional int32 current = 2;
+
+    /**
+     * State of charge of the battery, in %
+     */
+    optional uint32 soc = 3;
+
+    /**
+     * Maximum power point tracking voltage, V = mppt / 10
+     */
+    optional uint32 mppt = 4;
 }
