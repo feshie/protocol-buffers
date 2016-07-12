@@ -1,13 +1,18 @@
 #!/usr/bin/env python
 # talk to an rs485 linked "smart sensor"
-# example args: /dev/ttyUSB0 9600
+# example args: /dev/ttyUSB0 9600 [-p]
+# -p Sets us to decode the data as PowerInfo instead of RS485
 import sys
 import serial
 import threading
 import python.rs485_message_pb2 as rs485_message_pb2
+import python.power_pb2 as power_pb2
 
 from struct import *
 from google.protobuf import message
+
+# True if the thing connected is a powerboard, false otherwise
+isPowerBoard = len(sys.argv) >= 4 and sys.argv[3] == "-p"
 
 ser = serial.Serial(sys.argv[1], sys.argv[2], timeout=0.1)
 connected = True
@@ -45,9 +50,10 @@ def readSerial():
 			raw = processRawResponse(s)
                         if raw is not None:
                             try:
-                                    rs485 = rs485_message_pb2.Rs485()
-                                    rs485.ParseFromString(raw)
-                                    print rs485
+                                msg = power_pb2.PowerInfo() if isPowerBoard else rs485_message_pb2.Rs485()
+                                msg.ParseFromString(raw)
+                                print msg
+
                             except message.DecodeError:
                                     print raw
 	ser.close()
