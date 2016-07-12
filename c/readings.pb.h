@@ -4,6 +4,8 @@
 #ifndef PB_READINGS_PB_H_INCLUDED
 #define PB_READINGS_PB_H_INCLUDED
 #include "pb.h"
+#include "power.pb.h"
+
 #if PB_PROTO_HEADER_VERSION != 30
 #error Regenerate this file with the current version of nanopb generator.
 #endif
@@ -38,13 +40,15 @@ typedef struct _Sample {
     uint32_t id;
     bool has_humid;
     float humid;
+    bool has_power;
+    PowerInfo power;
 } Sample;
 
 /* Default values for struct fields */
 
 /* Initializer values for message structs */
-#define Sample_init_default                      {0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, {0, {0}}, 0, false, 0}
-#define Sample_init_zero                         {0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, {0, {0}}, 0, false, 0}
+#define Sample_init_default                      {0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, {0, {0}}, 0, false, 0, false, PowerInfo_init_default}
+#define Sample_init_zero                         {0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, {0, {0}}, 0, false, 0, false, PowerInfo_init_zero}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define Sample_time_tag                          1
@@ -59,12 +63,13 @@ typedef struct _Sample {
 #define Sample_AVR_tag                           10
 #define Sample_id_tag                            11
 #define Sample_humid_tag                         12
+#define Sample_power_tag                         13
 
 /* Struct field encoding specification for nanopb */
-extern const pb_field_t Sample_fields[13];
+extern const pb_field_t Sample_fields[14];
 
 /* Maximum encoded size of messages (where known) */
-#define Sample_size                              156
+#define Sample_size                              (162 + PowerInfo_size)
 
 /* Message IDs (where set with "msgid" option) */
 #ifdef PB_MSGID

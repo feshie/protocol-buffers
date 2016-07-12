@@ -1,0 +1,14 @@
+option java_package = "org.mountainsensing.pb";
+
+/**
+ * Represents statistics gathered by the power module
+ */
+message PowerInfo {
+    
+    /**
+     * Battery voltage in Volts
+     */
+    optional float batt = 1;
+
+    // TODO
+}

@@ -221,6 +221,34 @@ public final class Readings {
      * </pre>
      */
     float getHumid();
+
+    /**
+     * <code>optional .PowerInfo power = 13;</code>
+     *
+     * <pre>
+     **
+     * Power statistics from the power board
+     * </pre>
+     */
+    boolean hasPower();
+    /**
+     * <code>optional .PowerInfo power = 13;</code>
+     *
+     * <pre>
+     **
+     * Power statistics from the power board
+     * </pre>
+     */
+    org.mountainsensing.pb.Power.PowerInfo getPower();
+    /**
+     * <code>optional .PowerInfo power = 13;</code>
+     *
+     * <pre>
+     **
+     * Power statistics from the power board
+     * </pre>
+     */
+    org.mountainsensing.pb.Power.PowerInfoOrBuilder getPowerOrBuilder();
   }
   /**
    * Protobuf type {@code Sample}
@@ -337,6 +365,19 @@ public final class Readings {
             case 101: {
               bitField0_ |= 0x00000800;
               humid_ = input.readFloat();
+              break;
+            }
+            case 106: {
+              org.mountainsensing.pb.Power.PowerInfo.Builder subBuilder = null;
+              if (((bitField0_ & 0x00001000) == 0x00001000)) {
+                subBuilder = power_.toBuilder();
+              }
+              power_ = input.readMessage(org.mountainsensing.pb.Power.PowerInfo.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(power_);
+                power_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00001000;
               break;
             }
           }
@@ -661,6 +702,42 @@ public final class Readings {
       return humid_;
     }
 
+    public static final int POWER_FIELD_NUMBER = 13;
+    private org.mountainsensing.pb.Power.PowerInfo power_;
+    /**
+     * <code>optional .PowerInfo power = 13;</code>
+     *
+     * <pre>
+     **
+     * Power statistics from the power board
+     * </pre>
+     */
+    public boolean hasPower() {
+      return ((bitField0_ & 0x00001000) == 0x00001000);
+    }
+    /**
+     * <code>optional .PowerInfo power = 13;</code>
+     *
+     * <pre>
+     **
+     * Power statistics from the power board
+     * </pre>
+     */
+    public org.mountainsensing.pb.Power.PowerInfo getPower() {
+      return power_;
+    }
+    /**
+     * <code>optional .PowerInfo power = 13;</code>
+     *
+     * <pre>
+     **
+     * Power statistics from the power board
+     * </pre>
+     */
+    public org.mountainsensing.pb.Power.PowerInfoOrBuilder getPowerOrBuilder() {
+      return power_;
+    }
+
     private void initFields() {
       time_ = 0;
       batt_ = 0F;
@@ -674,6 +751,7 @@ public final class Readings {
       aVR_ = com.google.protobuf.ByteString.EMPTY;
       id_ = 0;
       humid_ = 0F;
+      power_ = org.mountainsensing.pb.Power.PowerInfo.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -732,6 +810,9 @@ public final class Readings {
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
         output.writeFloat(12, humid_);
       }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        output.writeMessage(13, power_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -788,6 +869,10 @@ public final class Readings {
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(12, humid_);
+      }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(13, power_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -903,6 +988,7 @@ public final class Readings {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getPowerFieldBuilder();
         }
       }
       private static Builder create() {
@@ -935,6 +1021,12 @@ public final class Readings {
         bitField0_ = (bitField0_ & ~0x00000400);
         humid_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000800);
+        if (powerBuilder_ == null) {
+          power_ = org.mountainsensing.pb.Power.PowerInfo.getDefaultInstance();
+        } else {
+          powerBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00001000);
         return this;
       }
 
@@ -1011,6 +1103,14 @@ public final class Readings {
           to_bitField0_ |= 0x00000800;
         }
         result.humid_ = humid_;
+        if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
+          to_bitField0_ |= 0x00001000;
+        }
+        if (powerBuilder_ == null) {
+          result.power_ = power_;
+        } else {
+          result.power_ = powerBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1062,6 +1162,9 @@ public final class Readings {
         }
         if (other.hasHumid()) {
           setHumid(other.getHumid());
+        }
+        if (other.hasPower()) {
+          mergePower(other.getPower());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1689,6 +1792,167 @@ public final class Readings {
         return this;
       }
 
+      private org.mountainsensing.pb.Power.PowerInfo power_ = org.mountainsensing.pb.Power.PowerInfo.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          org.mountainsensing.pb.Power.PowerInfo, org.mountainsensing.pb.Power.PowerInfo.Builder, org.mountainsensing.pb.Power.PowerInfoOrBuilder> powerBuilder_;
+      /**
+       * <code>optional .PowerInfo power = 13;</code>
+       *
+       * <pre>
+       **
+       * Power statistics from the power board
+       * </pre>
+       */
+      public boolean hasPower() {
+        return ((bitField0_ & 0x00001000) == 0x00001000);
+      }
+      /**
+       * <code>optional .PowerInfo power = 13;</code>
+       *
+       * <pre>
+       **
+       * Power statistics from the power board
+       * </pre>
+       */
+      public org.mountainsensing.pb.Power.PowerInfo getPower() {
+        if (powerBuilder_ == null) {
+          return power_;
+        } else {
+          return powerBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .PowerInfo power = 13;</code>
+       *
+       * <pre>
+       **
+       * Power statistics from the power board
+       * </pre>
+       */
+      public Builder setPower(org.mountainsensing.pb.Power.PowerInfo value) {
+        if (powerBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          power_ = value;
+          onChanged();
+        } else {
+          powerBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00001000;
+        return this;
+      }
+      /**
+       * <code>optional .PowerInfo power = 13;</code>
+       *
+       * <pre>
+       **
+       * Power statistics from the power board
+       * </pre>
+       */
+      public Builder setPower(
+          org.mountainsensing.pb.Power.PowerInfo.Builder builderForValue) {
+        if (powerBuilder_ == null) {
+          power_ = builderForValue.build();
+          onChanged();
+        } else {
+          powerBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00001000;
+        return this;
+      }
+      /**
+       * <code>optional .PowerInfo power = 13;</code>
+       *
+       * <pre>
+       **
+       * Power statistics from the power board
+       * </pre>
+       */
+      public Builder mergePower(org.mountainsensing.pb.Power.PowerInfo value) {
+        if (powerBuilder_ == null) {
+          if (((bitField0_ & 0x00001000) == 0x00001000) &&
+              power_ != org.mountainsensing.pb.Power.PowerInfo.getDefaultInstance()) {
+            power_ =
+              org.mountainsensing.pb.Power.PowerInfo.newBuilder(power_).mergeFrom(value).buildPartial();
+          } else {
+            power_ = value;
+          }
+          onChanged();
+        } else {
+          powerBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00001000;
+        return this;
+      }
+      /**
+       * <code>optional .PowerInfo power = 13;</code>
+       *
+       * <pre>
+       **
+       * Power statistics from the power board
+       * </pre>
+       */
+      public Builder clearPower() {
+        if (powerBuilder_ == null) {
+          power_ = org.mountainsensing.pb.Power.PowerInfo.getDefaultInstance();
+          onChanged();
+        } else {
+          powerBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00001000);
+        return this;
+      }
+      /**
+       * <code>optional .PowerInfo power = 13;</code>
+       *
+       * <pre>
+       **
+       * Power statistics from the power board
+       * </pre>
+       */
+      public org.mountainsensing.pb.Power.PowerInfo.Builder getPowerBuilder() {
+        bitField0_ |= 0x00001000;
+        onChanged();
+        return getPowerFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .PowerInfo power = 13;</code>
+       *
+       * <pre>
+       **
+       * Power statistics from the power board
+       * </pre>
+       */
+      public org.mountainsensing.pb.Power.PowerInfoOrBuilder getPowerOrBuilder() {
+        if (powerBuilder_ != null) {
+          return powerBuilder_.getMessageOrBuilder();
+        } else {
+          return power_;
+        }
+      }
+      /**
+       * <code>optional .PowerInfo power = 13;</code>
+       *
+       * <pre>
+       **
+       * Power statistics from the power board
+       * </pre>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          org.mountainsensing.pb.Power.PowerInfo, org.mountainsensing.pb.Power.PowerInfo.Builder, org.mountainsensing.pb.Power.PowerInfoOrBuilder> 
+          getPowerFieldBuilder() {
+        if (powerBuilder_ == null) {
+          powerBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              org.mountainsensing.pb.Power.PowerInfo, org.mountainsensing.pb.Power.PowerInfo.Builder, org.mountainsensing.pb.Power.PowerInfoOrBuilder>(
+                  getPower(),
+                  getParentForChildren(),
+                  isClean());
+          power_ = null;
+        }
+        return powerBuilder_;
+      }
+
       // @@protoc_insertion_point(builder_scope:Sample)
     }
 
@@ -1714,11 +1978,12 @@ public final class Readings {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016readings.proto\"\256\001\n\006Sample\022\014\n\004time\030\001 \002(" +
-      "\007\022\014\n\004batt\030\002 \001(\002\022\014\n\004temp\030\003 \001(\002\022\014\n\004accX\030\004 " +
-      "\001(\021\022\014\n\004accY\030\005 \001(\021\022\014\n\004accZ\030\006 \001(\021\022\014\n\004ADC1\030" +
-      "\007 \001(\r\022\014\n\004ADC2\030\010 \001(\r\022\014\n\004rain\030\t \001(\r\022\013\n\003AVR" +
-      "\030\n \001(\014\022\n\n\002id\030\013 \002(\r\022\r\n\005humid\030\014 \001(\002B\030\n\026org" +
+      "\n\016readings.proto\032\013power.proto\"\311\001\n\006Sample" +
+      "\022\014\n\004time\030\001 \002(\007\022\014\n\004batt\030\002 \001(\002\022\014\n\004temp\030\003 \001" +
+      "(\002\022\014\n\004accX\030\004 \001(\021\022\014\n\004accY\030\005 \001(\021\022\014\n\004accZ\030\006" +
+      " \001(\021\022\014\n\004ADC1\030\007 \001(\r\022\014\n\004ADC2\030\010 \001(\r\022\014\n\004rain" +
+      "\030\t \001(\r\022\013\n\003AVR\030\n \001(\014\022\n\n\002id\030\013 \002(\r\022\r\n\005humid" +
+      "\030\014 \001(\002\022\031\n\005power\030\r \001(\0132\n.PowerInfoB\030\n\026org" +
       ".mountainsensing.pb"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
@@ -1732,13 +1997,15 @@ public final class Readings {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          org.mountainsensing.pb.Power.getDescriptor(),
         }, assigner);
     internal_static_Sample_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_Sample_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_Sample_descriptor,
-        new java.lang.String[] { "Time", "Batt", "Temp", "AccX", "AccY", "AccZ", "ADC1", "ADC2", "Rain", "AVR", "Id", "Humid", });
+        new java.lang.String[] { "Time", "Batt", "Temp", "AccX", "AccY", "AccZ", "ADC1", "ADC2", "Rain", "AVR", "Id", "Humid", "Power", });
+    org.mountainsensing.pb.Power.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

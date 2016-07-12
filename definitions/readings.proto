@@ -1,5 +1,7 @@
 option java_package = "org.mountainsensing.pb";
 
+import "power.proto";
+
 /**
  * Represents a reading made by a node
  */
@@ -57,4 +59,9 @@ message Sample {
      * The humidity in percentage (0-100)
      */
     optional float humid = 12;
+
+    /**
+     * Power statistics from the power board
+     */
+    optional PowerInfo power = 13;
 }

@@ -13,13 +13,15 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
+import power_pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='readings.proto',
   package='',
-  serialized_pb=_b('\n\x0ereadings.proto\"\xae\x01\n\x06Sample\x12\x0c\n\x04time\x18\x01 \x02(\x07\x12\x0c\n\x04\x62\x61tt\x18\x02 \x01(\x02\x12\x0c\n\x04temp\x18\x03 \x01(\x02\x12\x0c\n\x04\x61\x63\x63X\x18\x04 \x01(\x11\x12\x0c\n\x04\x61\x63\x63Y\x18\x05 \x01(\x11\x12\x0c\n\x04\x61\x63\x63Z\x18\x06 \x01(\x11\x12\x0c\n\x04\x41\x44\x43\x31\x18\x07 \x01(\r\x12\x0c\n\x04\x41\x44\x43\x32\x18\x08 \x01(\r\x12\x0c\n\x04rain\x18\t \x01(\r\x12\x0b\n\x03\x41VR\x18\n \x01(\x0c\x12\n\n\x02id\x18\x0b \x02(\r\x12\r\n\x05humid\x18\x0c \x01(\x02\x42\x18\n\x16org.mountainsensing.pb')
-)
+  serialized_pb=_b('\n\x0ereadings.proto\x1a\x0bpower.proto\"\xc9\x01\n\x06Sample\x12\x0c\n\x04time\x18\x01 \x02(\x07\x12\x0c\n\x04\x62\x61tt\x18\x02 \x01(\x02\x12\x0c\n\x04temp\x18\x03 \x01(\x02\x12\x0c\n\x04\x61\x63\x63X\x18\x04 \x01(\x11\x12\x0c\n\x04\x61\x63\x63Y\x18\x05 \x01(\x11\x12\x0c\n\x04\x61\x63\x63Z\x18\x06 \x01(\x11\x12\x0c\n\x04\x41\x44\x43\x31\x18\x07 \x01(\r\x12\x0c\n\x04\x41\x44\x43\x32\x18\x08 \x01(\r\x12\x0c\n\x04rain\x18\t \x01(\r\x12\x0b\n\x03\x41VR\x18\n \x01(\x0c\x12\n\n\x02id\x18\x0b \x02(\r\x12\r\n\x05humid\x18\x0c \x01(\x02\x12\x19\n\x05power\x18\r \x01(\x0b\x32\n.PowerInfoB\x18\n\x16org.mountainsensing.pb')
+  ,
+  dependencies=[power_pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
@@ -116,6 +118,13 @@ _SAMPLE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='power', full_name='Sample.power', index=12,
+      number=13, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -127,10 +136,11 @@ _SAMPLE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=19,
-  serialized_end=193,
+  serialized_start=32,
+  serialized_end=233,
 )
 
+_SAMPLE.fields_by_name['power'].message_type = power_pb2._POWERINFO
 DESCRIPTOR.message_types_by_name['Sample'] = _SAMPLE
 
 Sample = _reflection.GeneratedProtocolMessageType('Sample', (_message.Message,), dict(
