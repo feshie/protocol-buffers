@@ -51,6 +51,34 @@ public final class Readings {
     float getBatt();
 
     /**
+     * <code>optional .PowerInfo power = 13;</code>
+     *
+     * <pre>
+     **
+     * Power statistics from the power board
+     * </pre>
+     */
+    boolean hasPower();
+    /**
+     * <code>optional .PowerInfo power = 13;</code>
+     *
+     * <pre>
+     **
+     * Power statistics from the power board
+     * </pre>
+     */
+    org.mountainsensing.pb.Power.PowerInfo getPower();
+    /**
+     * <code>optional .PowerInfo power = 13;</code>
+     *
+     * <pre>
+     **
+     * Power statistics from the power board
+     * </pre>
+     */
+    org.mountainsensing.pb.Power.PowerInfoOrBuilder getPowerOrBuilder();
+
+    /**
      * <code>optional float temp = 3;</code>
      *
      * <pre>
@@ -221,34 +249,6 @@ public final class Readings {
      * </pre>
      */
     float getHumid();
-
-    /**
-     * <code>optional .PowerInfo power = 13;</code>
-     *
-     * <pre>
-     **
-     * Power statistics from the power board
-     * </pre>
-     */
-    boolean hasPower();
-    /**
-     * <code>optional .PowerInfo power = 13;</code>
-     *
-     * <pre>
-     **
-     * Power statistics from the power board
-     * </pre>
-     */
-    org.mountainsensing.pb.Power.PowerInfo getPower();
-    /**
-     * <code>optional .PowerInfo power = 13;</code>
-     *
-     * <pre>
-     **
-     * Power statistics from the power board
-     * </pre>
-     */
-    org.mountainsensing.pb.Power.PowerInfoOrBuilder getPowerOrBuilder();
   }
   /**
    * Protobuf type {@code Sample}
@@ -313,71 +313,71 @@ public final class Readings {
               break;
             }
             case 21: {
-              bitField0_ |= 0x00000002;
-              batt_ = input.readFloat();
+              batteryCase_ = 2;
+              battery_ = input.readFloat();
               break;
             }
             case 29: {
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000008;
               temp_ = input.readFloat();
               break;
             }
             case 32: {
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000010;
               accX_ = input.readSInt32();
               break;
             }
             case 40: {
-              bitField0_ |= 0x00000010;
+              bitField0_ |= 0x00000020;
               accY_ = input.readSInt32();
               break;
             }
             case 48: {
-              bitField0_ |= 0x00000020;
+              bitField0_ |= 0x00000040;
               accZ_ = input.readSInt32();
               break;
             }
             case 56: {
-              bitField0_ |= 0x00000040;
+              bitField0_ |= 0x00000080;
               aDC1_ = input.readUInt32();
               break;
             }
             case 64: {
-              bitField0_ |= 0x00000080;
+              bitField0_ |= 0x00000100;
               aDC2_ = input.readUInt32();
               break;
             }
             case 72: {
-              bitField0_ |= 0x00000100;
+              bitField0_ |= 0x00000200;
               rain_ = input.readUInt32();
               break;
             }
             case 82: {
-              bitField0_ |= 0x00000200;
+              bitField0_ |= 0x00000400;
               aVR_ = input.readBytes();
               break;
             }
             case 88: {
-              bitField0_ |= 0x00000400;
+              bitField0_ |= 0x00000800;
               id_ = input.readUInt32();
               break;
             }
             case 101: {
-              bitField0_ |= 0x00000800;
+              bitField0_ |= 0x00001000;
               humid_ = input.readFloat();
               break;
             }
             case 106: {
               org.mountainsensing.pb.Power.PowerInfo.Builder subBuilder = null;
-              if (((bitField0_ & 0x00001000) == 0x00001000)) {
-                subBuilder = power_.toBuilder();
+              if (batteryCase_ == 13) {
+                subBuilder = ((org.mountainsensing.pb.Power.PowerInfo) battery_).toBuilder();
               }
-              power_ = input.readMessage(org.mountainsensing.pb.Power.PowerInfo.PARSER, extensionRegistry);
+              battery_ = input.readMessage(org.mountainsensing.pb.Power.PowerInfo.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(power_);
-                power_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((org.mountainsensing.pb.Power.PowerInfo) battery_);
+                battery_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00001000;
+              batteryCase_ = 13;
               break;
             }
           }
@@ -420,6 +420,37 @@ public final class Readings {
     }
 
     private int bitField0_;
+    private int batteryCase_ = 0;
+    private java.lang.Object battery_;
+    public enum BatteryCase
+        implements com.google.protobuf.Internal.EnumLite {
+      BATT(2),
+      POWER(13),
+      BATTERY_NOT_SET(0);
+      private int value = 0;
+      private BatteryCase(int value) {
+        this.value = value;
+      }
+      public static BatteryCase valueOf(int value) {
+        switch (value) {
+          case 2: return BATT;
+          case 13: return POWER;
+          case 0: return BATTERY_NOT_SET;
+          default: throw new java.lang.IllegalArgumentException(
+            "Value is undefined for this oneof enum.");
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public BatteryCase
+    getBatteryCase() {
+      return BatteryCase.valueOf(
+          batteryCase_);
+    }
+
     public static final int TIME_FIELD_NUMBER = 1;
     private int time_;
     /**
@@ -446,7 +477,6 @@ public final class Readings {
     }
 
     public static final int BATT_FIELD_NUMBER = 2;
-    private float batt_;
     /**
      * <code>optional float batt = 2;</code>
      *
@@ -456,7 +486,7 @@ public final class Readings {
      * </pre>
      */
     public boolean hasBatt() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return batteryCase_ == 2;
     }
     /**
      * <code>optional float batt = 2;</code>
@@ -467,7 +497,51 @@ public final class Readings {
      * </pre>
      */
     public float getBatt() {
-      return batt_;
+      if (batteryCase_ == 2) {
+        return (java.lang.Float) battery_;
+      }
+      return 0F;
+    }
+
+    public static final int POWER_FIELD_NUMBER = 13;
+    /**
+     * <code>optional .PowerInfo power = 13;</code>
+     *
+     * <pre>
+     **
+     * Power statistics from the power board
+     * </pre>
+     */
+    public boolean hasPower() {
+      return batteryCase_ == 13;
+    }
+    /**
+     * <code>optional .PowerInfo power = 13;</code>
+     *
+     * <pre>
+     **
+     * Power statistics from the power board
+     * </pre>
+     */
+    public org.mountainsensing.pb.Power.PowerInfo getPower() {
+      if (batteryCase_ == 13) {
+         return (org.mountainsensing.pb.Power.PowerInfo) battery_;
+      }
+      return org.mountainsensing.pb.Power.PowerInfo.getDefaultInstance();
+    }
+    /**
+     * <code>optional .PowerInfo power = 13;</code>
+     *
+     * <pre>
+     **
+     * Power statistics from the power board
+     * </pre>
+     */
+    public org.mountainsensing.pb.Power.PowerInfoOrBuilder getPowerOrBuilder() {
+      if (batteryCase_ == 13) {
+         return (org.mountainsensing.pb.Power.PowerInfo) battery_;
+      }
+      return org.mountainsensing.pb.Power.PowerInfo.getDefaultInstance();
     }
 
     public static final int TEMP_FIELD_NUMBER = 3;
@@ -481,7 +555,7 @@ public final class Readings {
      * </pre>
      */
     public boolean hasTemp() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
      * <code>optional float temp = 3;</code>
@@ -506,7 +580,7 @@ public final class Readings {
      * </pre>
      */
     public boolean hasAccX() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
      * <code>optional sint32 accX = 4;</code>
@@ -526,7 +600,7 @@ public final class Readings {
      * <code>optional sint32 accY = 5;</code>
      */
     public boolean hasAccY() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
      * <code>optional sint32 accY = 5;</code>
@@ -541,7 +615,7 @@ public final class Readings {
      * <code>optional sint32 accZ = 6;</code>
      */
     public boolean hasAccZ() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
      * <code>optional sint32 accZ = 6;</code>
@@ -561,7 +635,7 @@ public final class Readings {
      * </pre>
      */
     public boolean hasADC1() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
      * <code>optional uint32 ADC1 = 7;</code>
@@ -586,7 +660,7 @@ public final class Readings {
      * </pre>
      */
     public boolean hasADC2() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
      * <code>optional uint32 ADC2 = 8;</code>
@@ -611,7 +685,7 @@ public final class Readings {
      * </pre>
      */
     public boolean hasRain() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
+      return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
      * <code>optional uint32 rain = 9;</code>
@@ -636,7 +710,7 @@ public final class Readings {
      * </pre>
      */
     public boolean hasAVR() {
-      return ((bitField0_ & 0x00000200) == 0x00000200);
+      return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
      * <code>optional bytes AVR = 10;</code>
@@ -662,7 +736,7 @@ public final class Readings {
      * </pre>
      */
     public boolean hasId() {
-      return ((bitField0_ & 0x00000400) == 0x00000400);
+      return ((bitField0_ & 0x00000800) == 0x00000800);
     }
     /**
      * <code>required uint32 id = 11;</code>
@@ -688,7 +762,7 @@ public final class Readings {
      * </pre>
      */
     public boolean hasHumid() {
-      return ((bitField0_ & 0x00000800) == 0x00000800);
+      return ((bitField0_ & 0x00001000) == 0x00001000);
     }
     /**
      * <code>optional float humid = 12;</code>
@@ -702,45 +776,8 @@ public final class Readings {
       return humid_;
     }
 
-    public static final int POWER_FIELD_NUMBER = 13;
-    private org.mountainsensing.pb.Power.PowerInfo power_;
-    /**
-     * <code>optional .PowerInfo power = 13;</code>
-     *
-     * <pre>
-     **
-     * Power statistics from the power board
-     * </pre>
-     */
-    public boolean hasPower() {
-      return ((bitField0_ & 0x00001000) == 0x00001000);
-    }
-    /**
-     * <code>optional .PowerInfo power = 13;</code>
-     *
-     * <pre>
-     **
-     * Power statistics from the power board
-     * </pre>
-     */
-    public org.mountainsensing.pb.Power.PowerInfo getPower() {
-      return power_;
-    }
-    /**
-     * <code>optional .PowerInfo power = 13;</code>
-     *
-     * <pre>
-     **
-     * Power statistics from the power board
-     * </pre>
-     */
-    public org.mountainsensing.pb.Power.PowerInfoOrBuilder getPowerOrBuilder() {
-      return power_;
-    }
-
     private void initFields() {
       time_ = 0;
-      batt_ = 0F;
       temp_ = 0F;
       accX_ = 0;
       accY_ = 0;
@@ -751,7 +788,6 @@ public final class Readings {
       aVR_ = com.google.protobuf.ByteString.EMPTY;
       id_ = 0;
       humid_ = 0F;
-      power_ = org.mountainsensing.pb.Power.PowerInfo.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -777,41 +813,42 @@ public final class Readings {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeFixed32(1, time_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeFloat(2, batt_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeFloat(3, temp_);
+      if (batteryCase_ == 2) {
+        output.writeFloat(
+            2, (float)((java.lang.Float) battery_));
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeSInt32(4, accX_);
+        output.writeFloat(3, temp_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeSInt32(5, accY_);
+        output.writeSInt32(4, accX_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeSInt32(6, accZ_);
+        output.writeSInt32(5, accY_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeUInt32(7, aDC1_);
+        output.writeSInt32(6, accZ_);
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeUInt32(8, aDC2_);
+        output.writeUInt32(7, aDC1_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeUInt32(9, rain_);
+        output.writeUInt32(8, aDC2_);
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeBytes(10, aVR_);
+        output.writeUInt32(9, rain_);
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeUInt32(11, id_);
+        output.writeBytes(10, aVR_);
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        output.writeFloat(12, humid_);
+        output.writeUInt32(11, id_);
       }
       if (((bitField0_ & 0x00001000) == 0x00001000)) {
-        output.writeMessage(13, power_);
+        output.writeFloat(12, humid_);
+      }
+      if (batteryCase_ == 13) {
+        output.writeMessage(13, (org.mountainsensing.pb.Power.PowerInfo) battery_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -826,53 +863,54 @@ public final class Readings {
         size += com.google.protobuf.CodedOutputStream
           .computeFixed32Size(1, time_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (batteryCase_ == 2) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(2, batt_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(3, temp_);
+          .computeFloatSize(
+              2, (float)((java.lang.Float) battery_));
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeSInt32Size(4, accX_);
+          .computeFloatSize(3, temp_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeSInt32Size(5, accY_);
+          .computeSInt32Size(4, accX_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeSInt32Size(6, accZ_);
+          .computeSInt32Size(5, accY_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(7, aDC1_);
+          .computeSInt32Size(6, accZ_);
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(8, aDC2_);
+          .computeUInt32Size(7, aDC1_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(9, rain_);
+          .computeUInt32Size(8, aDC2_);
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(10, aVR_);
+          .computeUInt32Size(9, rain_);
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(11, id_);
+          .computeBytesSize(10, aVR_);
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(12, humid_);
+          .computeUInt32Size(11, id_);
       }
       if (((bitField0_ & 0x00001000) == 0x00001000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(13, power_);
+          .computeFloatSize(12, humid_);
+      }
+      if (batteryCase_ == 13) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(13, (org.mountainsensing.pb.Power.PowerInfo) battery_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -988,7 +1026,6 @@ public final class Readings {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getPowerFieldBuilder();
         }
       }
       private static Builder create() {
@@ -999,34 +1036,28 @@ public final class Readings {
         super.clear();
         time_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        batt_ = 0F;
-        bitField0_ = (bitField0_ & ~0x00000002);
         temp_ = 0F;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        accX_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
-        accY_ = 0;
+        accX_ = 0;
         bitField0_ = (bitField0_ & ~0x00000010);
-        accZ_ = 0;
+        accY_ = 0;
         bitField0_ = (bitField0_ & ~0x00000020);
-        aDC1_ = 0;
+        accZ_ = 0;
         bitField0_ = (bitField0_ & ~0x00000040);
-        aDC2_ = 0;
+        aDC1_ = 0;
         bitField0_ = (bitField0_ & ~0x00000080);
-        rain_ = 0;
+        aDC2_ = 0;
         bitField0_ = (bitField0_ & ~0x00000100);
-        aVR_ = com.google.protobuf.ByteString.EMPTY;
+        rain_ = 0;
         bitField0_ = (bitField0_ & ~0x00000200);
-        id_ = 0;
+        aVR_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000400);
-        humid_ = 0F;
+        id_ = 0;
         bitField0_ = (bitField0_ & ~0x00000800);
-        if (powerBuilder_ == null) {
-          power_ = org.mountainsensing.pb.Power.PowerInfo.getDefaultInstance();
-        } else {
-          powerBuilder_.clear();
-        }
+        humid_ = 0F;
         bitField0_ = (bitField0_ & ~0x00001000);
+        batteryCase_ = 0;
+        battery_ = null;
         return this;
       }
 
@@ -1059,59 +1090,58 @@ public final class Readings {
           to_bitField0_ |= 0x00000001;
         }
         result.time_ = time_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
+        if (batteryCase_ == 2) {
+          result.battery_ = battery_;
         }
-        result.batt_ = batt_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
+        if (batteryCase_ == 13) {
+          if (powerBuilder_ == null) {
+            result.battery_ = battery_;
+          } else {
+            result.battery_ = powerBuilder_.build();
+          }
         }
-        result.temp_ = temp_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.accX_ = accX_;
+        result.temp_ = temp_;
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.accY_ = accY_;
+        result.accX_ = accX_;
         if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000020;
         }
-        result.accZ_ = accZ_;
+        result.accY_ = accY_;
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.aDC1_ = aDC1_;
+        result.accZ_ = accZ_;
         if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000080;
         }
-        result.aDC2_ = aDC2_;
+        result.aDC1_ = aDC1_;
         if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
           to_bitField0_ |= 0x00000100;
         }
-        result.rain_ = rain_;
+        result.aDC2_ = aDC2_;
         if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
           to_bitField0_ |= 0x00000200;
         }
-        result.aVR_ = aVR_;
+        result.rain_ = rain_;
         if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
           to_bitField0_ |= 0x00000400;
         }
-        result.id_ = id_;
+        result.aVR_ = aVR_;
         if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
           to_bitField0_ |= 0x00000800;
         }
-        result.humid_ = humid_;
+        result.id_ = id_;
         if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
           to_bitField0_ |= 0x00001000;
         }
-        if (powerBuilder_ == null) {
-          result.power_ = power_;
-        } else {
-          result.power_ = powerBuilder_.build();
-        }
+        result.humid_ = humid_;
         result.bitField0_ = to_bitField0_;
+        result.batteryCase_ = batteryCase_;
         onBuilt();
         return result;
       }
@@ -1129,9 +1159,6 @@ public final class Readings {
         if (other == org.mountainsensing.pb.Readings.Sample.getDefaultInstance()) return this;
         if (other.hasTime()) {
           setTime(other.getTime());
-        }
-        if (other.hasBatt()) {
-          setBatt(other.getBatt());
         }
         if (other.hasTemp()) {
           setTemp(other.getTemp());
@@ -1163,8 +1190,18 @@ public final class Readings {
         if (other.hasHumid()) {
           setHumid(other.getHumid());
         }
-        if (other.hasPower()) {
-          mergePower(other.getPower());
+        switch (other.getBatteryCase()) {
+          case BATT: {
+            setBatt(other.getBatt());
+            break;
+          }
+          case POWER: {
+            mergePower(other.getPower());
+            break;
+          }
+          case BATTERY_NOT_SET: {
+            break;
+          }
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1199,6 +1236,21 @@ public final class Readings {
         }
         return this;
       }
+      private int batteryCase_ = 0;
+      private java.lang.Object battery_;
+      public BatteryCase
+          getBatteryCase() {
+        return BatteryCase.valueOf(
+            batteryCase_);
+      }
+
+      public Builder clearBattery() {
+        batteryCase_ = 0;
+        battery_ = null;
+        onChanged();
+        return this;
+      }
+
       private int bitField0_;
 
       private int time_ ;
@@ -1253,7 +1305,6 @@ public final class Readings {
         return this;
       }
 
-      private float batt_ ;
       /**
        * <code>optional float batt = 2;</code>
        *
@@ -1263,7 +1314,7 @@ public final class Readings {
        * </pre>
        */
       public boolean hasBatt() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return batteryCase_ == 2;
       }
       /**
        * <code>optional float batt = 2;</code>
@@ -1274,7 +1325,10 @@ public final class Readings {
        * </pre>
        */
       public float getBatt() {
-        return batt_;
+        if (batteryCase_ == 2) {
+          return (java.lang.Float) battery_;
+        }
+        return 0F;
       }
       /**
        * <code>optional float batt = 2;</code>
@@ -1285,8 +1339,8 @@ public final class Readings {
        * </pre>
        */
       public Builder setBatt(float value) {
-        bitField0_ |= 0x00000002;
-        batt_ = value;
+        batteryCase_ = 2;
+        battery_ = value;
         onChanged();
         return this;
       }
@@ -1299,10 +1353,192 @@ public final class Readings {
        * </pre>
        */
       public Builder clearBatt() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        batt_ = 0F;
-        onChanged();
+        if (batteryCase_ == 2) {
+          batteryCase_ = 0;
+          battery_ = null;
+          onChanged();
+        }
         return this;
+      }
+
+      private com.google.protobuf.SingleFieldBuilder<
+          org.mountainsensing.pb.Power.PowerInfo, org.mountainsensing.pb.Power.PowerInfo.Builder, org.mountainsensing.pb.Power.PowerInfoOrBuilder> powerBuilder_;
+      /**
+       * <code>optional .PowerInfo power = 13;</code>
+       *
+       * <pre>
+       **
+       * Power statistics from the power board
+       * </pre>
+       */
+      public boolean hasPower() {
+        return batteryCase_ == 13;
+      }
+      /**
+       * <code>optional .PowerInfo power = 13;</code>
+       *
+       * <pre>
+       **
+       * Power statistics from the power board
+       * </pre>
+       */
+      public org.mountainsensing.pb.Power.PowerInfo getPower() {
+        if (powerBuilder_ == null) {
+          if (batteryCase_ == 13) {
+            return (org.mountainsensing.pb.Power.PowerInfo) battery_;
+          }
+          return org.mountainsensing.pb.Power.PowerInfo.getDefaultInstance();
+        } else {
+          if (batteryCase_ == 13) {
+            return powerBuilder_.getMessage();
+          }
+          return org.mountainsensing.pb.Power.PowerInfo.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .PowerInfo power = 13;</code>
+       *
+       * <pre>
+       **
+       * Power statistics from the power board
+       * </pre>
+       */
+      public Builder setPower(org.mountainsensing.pb.Power.PowerInfo value) {
+        if (powerBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          battery_ = value;
+          onChanged();
+        } else {
+          powerBuilder_.setMessage(value);
+        }
+        batteryCase_ = 13;
+        return this;
+      }
+      /**
+       * <code>optional .PowerInfo power = 13;</code>
+       *
+       * <pre>
+       **
+       * Power statistics from the power board
+       * </pre>
+       */
+      public Builder setPower(
+          org.mountainsensing.pb.Power.PowerInfo.Builder builderForValue) {
+        if (powerBuilder_ == null) {
+          battery_ = builderForValue.build();
+          onChanged();
+        } else {
+          powerBuilder_.setMessage(builderForValue.build());
+        }
+        batteryCase_ = 13;
+        return this;
+      }
+      /**
+       * <code>optional .PowerInfo power = 13;</code>
+       *
+       * <pre>
+       **
+       * Power statistics from the power board
+       * </pre>
+       */
+      public Builder mergePower(org.mountainsensing.pb.Power.PowerInfo value) {
+        if (powerBuilder_ == null) {
+          if (batteryCase_ == 13 &&
+              battery_ != org.mountainsensing.pb.Power.PowerInfo.getDefaultInstance()) {
+            battery_ = org.mountainsensing.pb.Power.PowerInfo.newBuilder((org.mountainsensing.pb.Power.PowerInfo) battery_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            battery_ = value;
+          }
+          onChanged();
+        } else {
+          if (batteryCase_ == 13) {
+            powerBuilder_.mergeFrom(value);
+          }
+          powerBuilder_.setMessage(value);
+        }
+        batteryCase_ = 13;
+        return this;
+      }
+      /**
+       * <code>optional .PowerInfo power = 13;</code>
+       *
+       * <pre>
+       **
+       * Power statistics from the power board
+       * </pre>
+       */
+      public Builder clearPower() {
+        if (powerBuilder_ == null) {
+          if (batteryCase_ == 13) {
+            batteryCase_ = 0;
+            battery_ = null;
+            onChanged();
+          }
+        } else {
+          if (batteryCase_ == 13) {
+            batteryCase_ = 0;
+            battery_ = null;
+          }
+          powerBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>optional .PowerInfo power = 13;</code>
+       *
+       * <pre>
+       **
+       * Power statistics from the power board
+       * </pre>
+       */
+      public org.mountainsensing.pb.Power.PowerInfo.Builder getPowerBuilder() {
+        return getPowerFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .PowerInfo power = 13;</code>
+       *
+       * <pre>
+       **
+       * Power statistics from the power board
+       * </pre>
+       */
+      public org.mountainsensing.pb.Power.PowerInfoOrBuilder getPowerOrBuilder() {
+        if ((batteryCase_ == 13) && (powerBuilder_ != null)) {
+          return powerBuilder_.getMessageOrBuilder();
+        } else {
+          if (batteryCase_ == 13) {
+            return (org.mountainsensing.pb.Power.PowerInfo) battery_;
+          }
+          return org.mountainsensing.pb.Power.PowerInfo.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .PowerInfo power = 13;</code>
+       *
+       * <pre>
+       **
+       * Power statistics from the power board
+       * </pre>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          org.mountainsensing.pb.Power.PowerInfo, org.mountainsensing.pb.Power.PowerInfo.Builder, org.mountainsensing.pb.Power.PowerInfoOrBuilder> 
+          getPowerFieldBuilder() {
+        if (powerBuilder_ == null) {
+          if (!(batteryCase_ == 13)) {
+            battery_ = org.mountainsensing.pb.Power.PowerInfo.getDefaultInstance();
+          }
+          powerBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              org.mountainsensing.pb.Power.PowerInfo, org.mountainsensing.pb.Power.PowerInfo.Builder, org.mountainsensing.pb.Power.PowerInfoOrBuilder>(
+                  (org.mountainsensing.pb.Power.PowerInfo) battery_,
+                  getParentForChildren(),
+                  isClean());
+          battery_ = null;
+        }
+        batteryCase_ = 13;
+        return powerBuilder_;
       }
 
       private float temp_ ;
@@ -1315,7 +1551,7 @@ public final class Readings {
        * </pre>
        */
       public boolean hasTemp() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
        * <code>optional float temp = 3;</code>
@@ -1337,7 +1573,7 @@ public final class Readings {
        * </pre>
        */
       public Builder setTemp(float value) {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         temp_ = value;
         onChanged();
         return this;
@@ -1351,7 +1587,7 @@ public final class Readings {
        * </pre>
        */
       public Builder clearTemp() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         temp_ = 0F;
         onChanged();
         return this;
@@ -1367,7 +1603,7 @@ public final class Readings {
        * </pre>
        */
       public boolean hasAccX() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
        * <code>optional sint32 accX = 4;</code>
@@ -1389,7 +1625,7 @@ public final class Readings {
        * </pre>
        */
       public Builder setAccX(int value) {
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         accX_ = value;
         onChanged();
         return this;
@@ -1403,7 +1639,7 @@ public final class Readings {
        * </pre>
        */
       public Builder clearAccX() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         accX_ = 0;
         onChanged();
         return this;
@@ -1414,7 +1650,7 @@ public final class Readings {
        * <code>optional sint32 accY = 5;</code>
        */
       public boolean hasAccY() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
        * <code>optional sint32 accY = 5;</code>
@@ -1426,7 +1662,7 @@ public final class Readings {
        * <code>optional sint32 accY = 5;</code>
        */
       public Builder setAccY(int value) {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         accY_ = value;
         onChanged();
         return this;
@@ -1435,7 +1671,7 @@ public final class Readings {
        * <code>optional sint32 accY = 5;</code>
        */
       public Builder clearAccY() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         accY_ = 0;
         onChanged();
         return this;
@@ -1446,7 +1682,7 @@ public final class Readings {
        * <code>optional sint32 accZ = 6;</code>
        */
       public boolean hasAccZ() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
        * <code>optional sint32 accZ = 6;</code>
@@ -1458,7 +1694,7 @@ public final class Readings {
        * <code>optional sint32 accZ = 6;</code>
        */
       public Builder setAccZ(int value) {
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
         accZ_ = value;
         onChanged();
         return this;
@@ -1467,7 +1703,7 @@ public final class Readings {
        * <code>optional sint32 accZ = 6;</code>
        */
       public Builder clearAccZ() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
         accZ_ = 0;
         onChanged();
         return this;
@@ -1483,7 +1719,7 @@ public final class Readings {
        * </pre>
        */
       public boolean hasADC1() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
        * <code>optional uint32 ADC1 = 7;</code>
@@ -1505,7 +1741,7 @@ public final class Readings {
        * </pre>
        */
       public Builder setADC1(int value) {
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
         aDC1_ = value;
         onChanged();
         return this;
@@ -1519,7 +1755,7 @@ public final class Readings {
        * </pre>
        */
       public Builder clearADC1() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000080);
         aDC1_ = 0;
         onChanged();
         return this;
@@ -1535,7 +1771,7 @@ public final class Readings {
        * </pre>
        */
       public boolean hasADC2() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
        * <code>optional uint32 ADC2 = 8;</code>
@@ -1557,7 +1793,7 @@ public final class Readings {
        * </pre>
        */
       public Builder setADC2(int value) {
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000100;
         aDC2_ = value;
         onChanged();
         return this;
@@ -1571,7 +1807,7 @@ public final class Readings {
        * </pre>
        */
       public Builder clearADC2() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000100);
         aDC2_ = 0;
         onChanged();
         return this;
@@ -1587,7 +1823,7 @@ public final class Readings {
        * </pre>
        */
       public boolean hasRain() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
+        return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
        * <code>optional uint32 rain = 9;</code>
@@ -1609,7 +1845,7 @@ public final class Readings {
        * </pre>
        */
       public Builder setRain(int value) {
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000200;
         rain_ = value;
         onChanged();
         return this;
@@ -1623,7 +1859,7 @@ public final class Readings {
        * </pre>
        */
       public Builder clearRain() {
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000200);
         rain_ = 0;
         onChanged();
         return this;
@@ -1639,7 +1875,7 @@ public final class Readings {
        * </pre>
        */
       public boolean hasAVR() {
-        return ((bitField0_ & 0x00000200) == 0x00000200);
+        return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
        * <code>optional bytes AVR = 10;</code>
@@ -1664,7 +1900,7 @@ public final class Readings {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000200;
+  bitField0_ |= 0x00000400;
         aVR_ = value;
         onChanged();
         return this;
@@ -1678,7 +1914,7 @@ public final class Readings {
        * </pre>
        */
       public Builder clearAVR() {
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000400);
         aVR_ = getDefaultInstance().getAVR();
         onChanged();
         return this;
@@ -1695,7 +1931,7 @@ public final class Readings {
        * </pre>
        */
       public boolean hasId() {
-        return ((bitField0_ & 0x00000400) == 0x00000400);
+        return ((bitField0_ & 0x00000800) == 0x00000800);
       }
       /**
        * <code>required uint32 id = 11;</code>
@@ -1719,7 +1955,7 @@ public final class Readings {
        * </pre>
        */
       public Builder setId(int value) {
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x00000800;
         id_ = value;
         onChanged();
         return this;
@@ -1734,7 +1970,7 @@ public final class Readings {
        * </pre>
        */
       public Builder clearId() {
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00000800);
         id_ = 0;
         onChanged();
         return this;
@@ -1750,7 +1986,7 @@ public final class Readings {
        * </pre>
        */
       public boolean hasHumid() {
-        return ((bitField0_ & 0x00000800) == 0x00000800);
+        return ((bitField0_ & 0x00001000) == 0x00001000);
       }
       /**
        * <code>optional float humid = 12;</code>
@@ -1772,7 +2008,7 @@ public final class Readings {
        * </pre>
        */
       public Builder setHumid(float value) {
-        bitField0_ |= 0x00000800;
+        bitField0_ |= 0x00001000;
         humid_ = value;
         onChanged();
         return this;
@@ -1786,171 +2022,10 @@ public final class Readings {
        * </pre>
        */
       public Builder clearHumid() {
-        bitField0_ = (bitField0_ & ~0x00000800);
+        bitField0_ = (bitField0_ & ~0x00001000);
         humid_ = 0F;
         onChanged();
         return this;
-      }
-
-      private org.mountainsensing.pb.Power.PowerInfo power_ = org.mountainsensing.pb.Power.PowerInfo.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
-          org.mountainsensing.pb.Power.PowerInfo, org.mountainsensing.pb.Power.PowerInfo.Builder, org.mountainsensing.pb.Power.PowerInfoOrBuilder> powerBuilder_;
-      /**
-       * <code>optional .PowerInfo power = 13;</code>
-       *
-       * <pre>
-       **
-       * Power statistics from the power board
-       * </pre>
-       */
-      public boolean hasPower() {
-        return ((bitField0_ & 0x00001000) == 0x00001000);
-      }
-      /**
-       * <code>optional .PowerInfo power = 13;</code>
-       *
-       * <pre>
-       **
-       * Power statistics from the power board
-       * </pre>
-       */
-      public org.mountainsensing.pb.Power.PowerInfo getPower() {
-        if (powerBuilder_ == null) {
-          return power_;
-        } else {
-          return powerBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>optional .PowerInfo power = 13;</code>
-       *
-       * <pre>
-       **
-       * Power statistics from the power board
-       * </pre>
-       */
-      public Builder setPower(org.mountainsensing.pb.Power.PowerInfo value) {
-        if (powerBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          power_ = value;
-          onChanged();
-        } else {
-          powerBuilder_.setMessage(value);
-        }
-        bitField0_ |= 0x00001000;
-        return this;
-      }
-      /**
-       * <code>optional .PowerInfo power = 13;</code>
-       *
-       * <pre>
-       **
-       * Power statistics from the power board
-       * </pre>
-       */
-      public Builder setPower(
-          org.mountainsensing.pb.Power.PowerInfo.Builder builderForValue) {
-        if (powerBuilder_ == null) {
-          power_ = builderForValue.build();
-          onChanged();
-        } else {
-          powerBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00001000;
-        return this;
-      }
-      /**
-       * <code>optional .PowerInfo power = 13;</code>
-       *
-       * <pre>
-       **
-       * Power statistics from the power board
-       * </pre>
-       */
-      public Builder mergePower(org.mountainsensing.pb.Power.PowerInfo value) {
-        if (powerBuilder_ == null) {
-          if (((bitField0_ & 0x00001000) == 0x00001000) &&
-              power_ != org.mountainsensing.pb.Power.PowerInfo.getDefaultInstance()) {
-            power_ =
-              org.mountainsensing.pb.Power.PowerInfo.newBuilder(power_).mergeFrom(value).buildPartial();
-          } else {
-            power_ = value;
-          }
-          onChanged();
-        } else {
-          powerBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00001000;
-        return this;
-      }
-      /**
-       * <code>optional .PowerInfo power = 13;</code>
-       *
-       * <pre>
-       **
-       * Power statistics from the power board
-       * </pre>
-       */
-      public Builder clearPower() {
-        if (powerBuilder_ == null) {
-          power_ = org.mountainsensing.pb.Power.PowerInfo.getDefaultInstance();
-          onChanged();
-        } else {
-          powerBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00001000);
-        return this;
-      }
-      /**
-       * <code>optional .PowerInfo power = 13;</code>
-       *
-       * <pre>
-       **
-       * Power statistics from the power board
-       * </pre>
-       */
-      public org.mountainsensing.pb.Power.PowerInfo.Builder getPowerBuilder() {
-        bitField0_ |= 0x00001000;
-        onChanged();
-        return getPowerFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>optional .PowerInfo power = 13;</code>
-       *
-       * <pre>
-       **
-       * Power statistics from the power board
-       * </pre>
-       */
-      public org.mountainsensing.pb.Power.PowerInfoOrBuilder getPowerOrBuilder() {
-        if (powerBuilder_ != null) {
-          return powerBuilder_.getMessageOrBuilder();
-        } else {
-          return power_;
-        }
-      }
-      /**
-       * <code>optional .PowerInfo power = 13;</code>
-       *
-       * <pre>
-       **
-       * Power statistics from the power board
-       * </pre>
-       */
-      private com.google.protobuf.SingleFieldBuilder<
-          org.mountainsensing.pb.Power.PowerInfo, org.mountainsensing.pb.Power.PowerInfo.Builder, org.mountainsensing.pb.Power.PowerInfoOrBuilder> 
-          getPowerFieldBuilder() {
-        if (powerBuilder_ == null) {
-          powerBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              org.mountainsensing.pb.Power.PowerInfo, org.mountainsensing.pb.Power.PowerInfo.Builder, org.mountainsensing.pb.Power.PowerInfoOrBuilder>(
-                  getPower(),
-                  getParentForChildren(),
-                  isClean());
-          power_ = null;
-        }
-        return powerBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:Sample)
@@ -1978,13 +2053,13 @@ public final class Readings {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016readings.proto\032\013power.proto\"\311\001\n\006Sample" +
-      "\022\014\n\004time\030\001 \002(\007\022\014\n\004batt\030\002 \001(\002\022\014\n\004temp\030\003 \001" +
-      "(\002\022\014\n\004accX\030\004 \001(\021\022\014\n\004accY\030\005 \001(\021\022\014\n\004accZ\030\006" +
-      " \001(\021\022\014\n\004ADC1\030\007 \001(\r\022\014\n\004ADC2\030\010 \001(\r\022\014\n\004rain" +
-      "\030\t \001(\r\022\013\n\003AVR\030\n \001(\014\022\n\n\002id\030\013 \002(\r\022\r\n\005humid" +
-      "\030\014 \001(\002\022\031\n\005power\030\r \001(\0132\n.PowerInfoB\030\n\026org" +
-      ".mountainsensing.pb"
+      "\n\016readings.proto\032\013power.proto\"\330\001\n\006Sample" +
+      "\022\014\n\004time\030\001 \002(\007\022\016\n\004batt\030\002 \001(\002H\000\022\033\n\005power\030" +
+      "\r \001(\0132\n.PowerInfoH\000\022\014\n\004temp\030\003 \001(\002\022\014\n\004acc" +
+      "X\030\004 \001(\021\022\014\n\004accY\030\005 \001(\021\022\014\n\004accZ\030\006 \001(\021\022\014\n\004A" +
+      "DC1\030\007 \001(\r\022\014\n\004ADC2\030\010 \001(\r\022\014\n\004rain\030\t \001(\r\022\013\n" +
+      "\003AVR\030\n \001(\014\022\n\n\002id\030\013 \002(\r\022\r\n\005humid\030\014 \001(\002B\t\n" +
+      "\007batteryB\030\n\026org.mountainsensing.pb"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2004,7 +2079,7 @@ public final class Readings {
     internal_static_Sample_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_Sample_descriptor,
-        new java.lang.String[] { "Time", "Batt", "Temp", "AccX", "AccY", "AccZ", "ADC1", "ADC2", "Rain", "AVR", "Id", "Humid", "Power", });
+        new java.lang.String[] { "Time", "Batt", "Power", "Temp", "AccX", "AccY", "AccZ", "ADC1", "ADC2", "Rain", "AVR", "Id", "Humid", "Battery", });
     org.mountainsensing.pb.Power.getDescriptor();
   }
 

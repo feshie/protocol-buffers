@@ -13,9 +13,20 @@ message Sample {
     required fixed32 time = 1;
 
     /**
-     * Battery voltage in Volts
+     * Battery / power information
      */
-    optional float batt = 2;
+    oneof battery {
+
+        /**
+         * Battery voltage in Volts
+         */
+        float batt = 2;
+
+        /**
+         * Power statistics from the power board
+         */
+        PowerInfo power = 13;
+    }
 
     /**
      * Temperature in Celcius
@@ -59,9 +70,4 @@ message Sample {
      * The humidity in percentage (0-100)
      */
     optional float humid = 12;
-
-    /**
-     * Power statistics from the power board
-     */
-    optional PowerInfo power = 13;
 }

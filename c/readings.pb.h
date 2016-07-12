@@ -19,8 +19,11 @@ extern "C" {
 typedef PB_BYTES_ARRAY_T(92) Sample_AVR_t;
 typedef struct _Sample {
     uint32_t time;
-    bool has_batt;
-    float batt;
+    pb_size_t which_battery;
+    union {
+        float batt;
+        PowerInfo power;
+    } battery;
     bool has_temp;
     float temp;
     bool has_accX;
@@ -40,19 +43,19 @@ typedef struct _Sample {
     uint32_t id;
     bool has_humid;
     float humid;
-    bool has_power;
-    PowerInfo power;
 } Sample;
 
 /* Default values for struct fields */
 
 /* Initializer values for message structs */
-#define Sample_init_default                      {0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, {0, {0}}, 0, false, 0, false, PowerInfo_init_default}
-#define Sample_init_zero                         {0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, {0, {0}}, 0, false, 0, false, PowerInfo_init_zero}
+#define Sample_init_default                      {0, 0, {0}, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, {0, {0}}, 0, false, 0}
+#define Sample_init_zero                         {0, 0, {0}, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, 0, false, {0, {0}}, 0, false, 0}
 
 /* Field tags (for use in manual encoding/decoding) */
-#define Sample_time_tag                          1
 #define Sample_batt_tag                          2
+
+#define Sample_power_tag                         13
+#define Sample_time_tag                          1
 #define Sample_temp_tag                          3
 #define Sample_accX_tag                          4
 #define Sample_accY_tag                          5
@@ -63,13 +66,11 @@ typedef struct _Sample {
 #define Sample_AVR_tag                           10
 #define Sample_id_tag                            11
 #define Sample_humid_tag                         12
-#define Sample_power_tag                         13
 
 /* Struct field encoding specification for nanopb */
 extern const pb_field_t Sample_fields[14];
 
 /* Maximum encoded size of messages (where known) */
-#define Sample_size                              (162 + PowerInfo_size)
 
 /* Message IDs (where set with "msgid" option) */
 #ifdef PB_MSGID

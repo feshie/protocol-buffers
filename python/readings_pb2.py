@@ -19,7 +19,7 @@ import power_pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='readings.proto',
   package='',
-  serialized_pb=_b('\n\x0ereadings.proto\x1a\x0bpower.proto\"\xc9\x01\n\x06Sample\x12\x0c\n\x04time\x18\x01 \x02(\x07\x12\x0c\n\x04\x62\x61tt\x18\x02 \x01(\x02\x12\x0c\n\x04temp\x18\x03 \x01(\x02\x12\x0c\n\x04\x61\x63\x63X\x18\x04 \x01(\x11\x12\x0c\n\x04\x61\x63\x63Y\x18\x05 \x01(\x11\x12\x0c\n\x04\x61\x63\x63Z\x18\x06 \x01(\x11\x12\x0c\n\x04\x41\x44\x43\x31\x18\x07 \x01(\r\x12\x0c\n\x04\x41\x44\x43\x32\x18\x08 \x01(\r\x12\x0c\n\x04rain\x18\t \x01(\r\x12\x0b\n\x03\x41VR\x18\n \x01(\x0c\x12\n\n\x02id\x18\x0b \x02(\r\x12\r\n\x05humid\x18\x0c \x01(\x02\x12\x19\n\x05power\x18\r \x01(\x0b\x32\n.PowerInfoB\x18\n\x16org.mountainsensing.pb')
+  serialized_pb=_b('\n\x0ereadings.proto\x1a\x0bpower.proto\"\xd8\x01\n\x06Sample\x12\x0c\n\x04time\x18\x01 \x02(\x07\x12\x0e\n\x04\x62\x61tt\x18\x02 \x01(\x02H\x00\x12\x1b\n\x05power\x18\r \x01(\x0b\x32\n.PowerInfoH\x00\x12\x0c\n\x04temp\x18\x03 \x01(\x02\x12\x0c\n\x04\x61\x63\x63X\x18\x04 \x01(\x11\x12\x0c\n\x04\x61\x63\x63Y\x18\x05 \x01(\x11\x12\x0c\n\x04\x61\x63\x63Z\x18\x06 \x01(\x11\x12\x0c\n\x04\x41\x44\x43\x31\x18\x07 \x01(\r\x12\x0c\n\x04\x41\x44\x43\x32\x18\x08 \x01(\r\x12\x0c\n\x04rain\x18\t \x01(\r\x12\x0b\n\x03\x41VR\x18\n \x01(\x0c\x12\n\n\x02id\x18\x0b \x02(\r\x12\r\n\x05humid\x18\x0c \x01(\x02\x42\t\n\x07\x62\x61tteryB\x18\n\x16org.mountainsensing.pb')
   ,
   dependencies=[power_pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -49,79 +49,79 @@ _SAMPLE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='temp', full_name='Sample.temp', index=2,
+      name='power', full_name='Sample.power', index=2,
+      number=13, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='temp', full_name='Sample.temp', index=3,
       number=3, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='accX', full_name='Sample.accX', index=3,
+      name='accX', full_name='Sample.accX', index=4,
       number=4, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='accY', full_name='Sample.accY', index=4,
+      name='accY', full_name='Sample.accY', index=5,
       number=5, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='accZ', full_name='Sample.accZ', index=5,
+      name='accZ', full_name='Sample.accZ', index=6,
       number=6, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='ADC1', full_name='Sample.ADC1', index=6,
+      name='ADC1', full_name='Sample.ADC1', index=7,
       number=7, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='ADC2', full_name='Sample.ADC2', index=7,
+      name='ADC2', full_name='Sample.ADC2', index=8,
       number=8, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='rain', full_name='Sample.rain', index=8,
+      name='rain', full_name='Sample.rain', index=9,
       number=9, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='AVR', full_name='Sample.AVR', index=9,
+      name='AVR', full_name='Sample.AVR', index=10,
       number=10, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='id', full_name='Sample.id', index=10,
+      name='id', full_name='Sample.id', index=11,
       number=11, type=13, cpp_type=3, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='humid', full_name='Sample.humid', index=11,
+      name='humid', full_name='Sample.humid', index=12,
       number=12, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='power', full_name='Sample.power', index=12,
-      number=13, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -135,12 +135,21 @@ _SAMPLE = _descriptor.Descriptor(
   is_extendable=False,
   extension_ranges=[],
   oneofs=[
+    _descriptor.OneofDescriptor(
+      name='battery', full_name='Sample.battery',
+      index=0, containing_type=None, fields=[]),
   ],
   serialized_start=32,
-  serialized_end=233,
+  serialized_end=248,
 )
 
 _SAMPLE.fields_by_name['power'].message_type = power_pb2._POWERINFO
+_SAMPLE.oneofs_by_name['battery'].fields.append(
+  _SAMPLE.fields_by_name['batt'])
+_SAMPLE.fields_by_name['batt'].containing_oneof = _SAMPLE.oneofs_by_name['battery']
+_SAMPLE.oneofs_by_name['battery'].fields.append(
+  _SAMPLE.fields_by_name['power'])
+_SAMPLE.fields_by_name['power'].containing_oneof = _SAMPLE.oneofs_by_name['battery']
 DESCRIPTOR.message_types_by_name['Sample'] = _SAMPLE
 
 Sample = _reflection.GeneratedProtocolMessageType('Sample', (_message.Message,), dict(
