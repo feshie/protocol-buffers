@@ -76,32 +76,23 @@ public final class Settings {
     boolean getHasRain();
 
     /**
-     * <code>repeated uint32 avrIDs = 4;</code>
+     * <code>optional uint32 avrID = 4;</code>
      *
      * <pre>
      **
-     * IDs of all the AVRs connected to the node
+     * ID of the AVR sensor connected to the node
      * </pre>
      */
-    java.util.List<java.lang.Integer> getAvrIDsList();
+    boolean hasAvrID();
     /**
-     * <code>repeated uint32 avrIDs = 4;</code>
+     * <code>optional uint32 avrID = 4;</code>
      *
      * <pre>
      **
-     * IDs of all the AVRs connected to the node
+     * ID of the AVR sensor connected to the node
      * </pre>
      */
-    int getAvrIDsCount();
-    /**
-     * <code>repeated uint32 avrIDs = 4;</code>
-     *
-     * <pre>
-     **
-     * IDs of all the AVRs connected to the node
-     * </pre>
-     */
-    int getAvrIDs(int index);
+    int getAvrID();
 
     /**
      * <code>required uint64 interval = 5;</code>
@@ -152,7 +143,7 @@ public final class Settings {
      *
      * <pre>
      **
-     * ID of the power module connected to the node over RS485
+     * ID of the power module connected to the node
      * </pre>
      */
     boolean hasPowerID();
@@ -161,7 +152,7 @@ public final class Settings {
      *
      * <pre>
      **
-     * ID of the power module connected to the node over RS485
+     * ID of the power module connected to the node
      * </pre>
      */
     int getPowerID();
@@ -234,28 +225,12 @@ public final class Settings {
               break;
             }
             case 32: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                avrIDs_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              avrIDs_.add(input.readUInt32());
-              break;
-            }
-            case 34: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008) && input.getBytesUntilLimit() > 0) {
-                avrIDs_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                avrIDs_.add(input.readUInt32());
-              }
-              input.popLimit(limit);
+              bitField0_ |= 0x00000008;
+              avrID_ = input.readUInt32();
               break;
             }
             case 40: {
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000010;
               interval_ = input.readUInt64();
               break;
             }
@@ -265,13 +240,13 @@ public final class Settings {
               if (value == null) {
                 unknownFields.mergeVarintField(6, rawValue);
               } else {
-                bitField0_ |= 0x00000010;
+                bitField0_ |= 0x00000020;
                 routingMode_ = value;
               }
               break;
             }
             case 56: {
-              bitField0_ |= 0x00000020;
+              bitField0_ |= 0x00000040;
               powerID_ = input.readUInt32();
               break;
             }
@@ -283,9 +258,6 @@ public final class Settings {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          avrIDs_ = java.util.Collections.unmodifiableList(avrIDs_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -490,41 +462,29 @@ public final class Settings {
       return hasRain_;
     }
 
-    public static final int AVRIDS_FIELD_NUMBER = 4;
-    private java.util.List<java.lang.Integer> avrIDs_;
+    public static final int AVRID_FIELD_NUMBER = 4;
+    private int avrID_;
     /**
-     * <code>repeated uint32 avrIDs = 4;</code>
+     * <code>optional uint32 avrID = 4;</code>
      *
      * <pre>
      **
-     * IDs of all the AVRs connected to the node
+     * ID of the AVR sensor connected to the node
      * </pre>
      */
-    public java.util.List<java.lang.Integer>
-        getAvrIDsList() {
-      return avrIDs_;
+    public boolean hasAvrID() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>repeated uint32 avrIDs = 4;</code>
+     * <code>optional uint32 avrID = 4;</code>
      *
      * <pre>
      **
-     * IDs of all the AVRs connected to the node
+     * ID of the AVR sensor connected to the node
      * </pre>
      */
-    public int getAvrIDsCount() {
-      return avrIDs_.size();
-    }
-    /**
-     * <code>repeated uint32 avrIDs = 4;</code>
-     *
-     * <pre>
-     **
-     * IDs of all the AVRs connected to the node
-     * </pre>
-     */
-    public int getAvrIDs(int index) {
-      return avrIDs_.get(index);
+    public int getAvrID() {
+      return avrID_;
     }
 
     public static final int INTERVAL_FIELD_NUMBER = 5;
@@ -538,7 +498,7 @@ public final class Settings {
      * </pre>
      */
     public boolean hasInterval() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
      * <code>required uint64 interval = 5;</code>
@@ -566,7 +526,7 @@ public final class Settings {
      * </pre>
      */
     public boolean hasRoutingMode() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
      * <code>required .SensorConfig.RoutingMode routingMode = 6;</code>
@@ -590,18 +550,18 @@ public final class Settings {
      *
      * <pre>
      **
-     * ID of the power module connected to the node over RS485
+     * ID of the power module connected to the node
      * </pre>
      */
     public boolean hasPowerID() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
      * <code>optional uint32 powerID = 7;</code>
      *
      * <pre>
      **
-     * ID of the power module connected to the node over RS485
+     * ID of the power module connected to the node
      * </pre>
      */
     public int getPowerID() {
@@ -612,7 +572,7 @@ public final class Settings {
       hasADC1_ = false;
       hasADC2_ = false;
       hasRain_ = false;
-      avrIDs_ = java.util.Collections.emptyList();
+      avrID_ = 0;
       interval_ = 0L;
       routingMode_ = org.mountainsensing.pb.Settings.SensorConfig.RoutingMode.MESH;
       powerID_ = 0;
@@ -659,16 +619,16 @@ public final class Settings {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBool(3, hasRain_);
       }
-      for (int i = 0; i < avrIDs_.size(); i++) {
-        output.writeUInt32(4, avrIDs_.get(i));
-      }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeUInt64(5, interval_);
+        output.writeUInt32(4, avrID_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeEnum(6, routingMode_.getNumber());
+        output.writeUInt64(5, interval_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeEnum(6, routingMode_.getNumber());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
         output.writeUInt32(7, powerID_);
       }
       getUnknownFields().writeTo(output);
@@ -692,24 +652,19 @@ public final class Settings {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, hasRain_);
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < avrIDs_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeUInt32SizeNoTag(avrIDs_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getAvrIDsList().size();
-      }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(5, interval_);
+          .computeUInt32Size(4, avrID_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(6, routingMode_.getNumber());
+          .computeUInt64Size(5, interval_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(6, routingMode_.getNumber());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(7, powerID_);
       }
@@ -836,7 +791,7 @@ public final class Settings {
         bitField0_ = (bitField0_ & ~0x00000002);
         hasRain_ = false;
         bitField0_ = (bitField0_ & ~0x00000004);
-        avrIDs_ = java.util.Collections.emptyList();
+        avrID_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
         interval_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000010);
@@ -884,21 +839,20 @@ public final class Settings {
           to_bitField0_ |= 0x00000004;
         }
         result.hasRain_ = hasRain_;
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          avrIDs_ = java.util.Collections.unmodifiableList(avrIDs_);
-          bitField0_ = (bitField0_ & ~0x00000008);
-        }
-        result.avrIDs_ = avrIDs_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
+        }
+        result.avrID_ = avrID_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
         }
         result.interval_ = interval_;
         if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
-          to_bitField0_ |= 0x00000010;
+          to_bitField0_ |= 0x00000020;
         }
         result.routingMode_ = routingMode_;
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
-          to_bitField0_ |= 0x00000020;
+          to_bitField0_ |= 0x00000040;
         }
         result.powerID_ = powerID_;
         result.bitField0_ = to_bitField0_;
@@ -926,15 +880,8 @@ public final class Settings {
         if (other.hasHasRain()) {
           setHasRain(other.getHasRain());
         }
-        if (!other.avrIDs_.isEmpty()) {
-          if (avrIDs_.isEmpty()) {
-            avrIDs_ = other.avrIDs_;
-            bitField0_ = (bitField0_ & ~0x00000008);
-          } else {
-            ensureAvrIDsIsMutable();
-            avrIDs_.addAll(other.avrIDs_);
-          }
-          onChanged();
+        if (other.hasAvrID()) {
+          setAvrID(other.getAvrID());
         }
         if (other.hasInterval()) {
           setInterval(other.getInterval());
@@ -1160,103 +1107,54 @@ public final class Settings {
         return this;
       }
 
-      private java.util.List<java.lang.Integer> avrIDs_ = java.util.Collections.emptyList();
-      private void ensureAvrIDsIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          avrIDs_ = new java.util.ArrayList<java.lang.Integer>(avrIDs_);
-          bitField0_ |= 0x00000008;
-         }
-      }
+      private int avrID_ ;
       /**
-       * <code>repeated uint32 avrIDs = 4;</code>
+       * <code>optional uint32 avrID = 4;</code>
        *
        * <pre>
        **
-       * IDs of all the AVRs connected to the node
+       * ID of the AVR sensor connected to the node
        * </pre>
        */
-      public java.util.List<java.lang.Integer>
-          getAvrIDsList() {
-        return java.util.Collections.unmodifiableList(avrIDs_);
+      public boolean hasAvrID() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>repeated uint32 avrIDs = 4;</code>
+       * <code>optional uint32 avrID = 4;</code>
        *
        * <pre>
        **
-       * IDs of all the AVRs connected to the node
+       * ID of the AVR sensor connected to the node
        * </pre>
        */
-      public int getAvrIDsCount() {
-        return avrIDs_.size();
+      public int getAvrID() {
+        return avrID_;
       }
       /**
-       * <code>repeated uint32 avrIDs = 4;</code>
+       * <code>optional uint32 avrID = 4;</code>
        *
        * <pre>
        **
-       * IDs of all the AVRs connected to the node
+       * ID of the AVR sensor connected to the node
        * </pre>
        */
-      public int getAvrIDs(int index) {
-        return avrIDs_.get(index);
-      }
-      /**
-       * <code>repeated uint32 avrIDs = 4;</code>
-       *
-       * <pre>
-       **
-       * IDs of all the AVRs connected to the node
-       * </pre>
-       */
-      public Builder setAvrIDs(
-          int index, int value) {
-        ensureAvrIDsIsMutable();
-        avrIDs_.set(index, value);
+      public Builder setAvrID(int value) {
+        bitField0_ |= 0x00000008;
+        avrID_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>repeated uint32 avrIDs = 4;</code>
+       * <code>optional uint32 avrID = 4;</code>
        *
        * <pre>
        **
-       * IDs of all the AVRs connected to the node
+       * ID of the AVR sensor connected to the node
        * </pre>
        */
-      public Builder addAvrIDs(int value) {
-        ensureAvrIDsIsMutable();
-        avrIDs_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated uint32 avrIDs = 4;</code>
-       *
-       * <pre>
-       **
-       * IDs of all the AVRs connected to the node
-       * </pre>
-       */
-      public Builder addAllAvrIDs(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureAvrIDsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, avrIDs_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated uint32 avrIDs = 4;</code>
-       *
-       * <pre>
-       **
-       * IDs of all the AVRs connected to the node
-       * </pre>
-       */
-      public Builder clearAvrIDs() {
-        avrIDs_ = java.util.Collections.emptyList();
+      public Builder clearAvrID() {
         bitField0_ = (bitField0_ & ~0x00000008);
+        avrID_ = 0;
         onChanged();
         return this;
       }
@@ -1386,7 +1284,7 @@ public final class Settings {
        *
        * <pre>
        **
-       * ID of the power module connected to the node over RS485
+       * ID of the power module connected to the node
        * </pre>
        */
       public boolean hasPowerID() {
@@ -1397,7 +1295,7 @@ public final class Settings {
        *
        * <pre>
        **
-       * ID of the power module connected to the node over RS485
+       * ID of the power module connected to the node
        * </pre>
        */
       public int getPowerID() {
@@ -1408,7 +1306,7 @@ public final class Settings {
        *
        * <pre>
        **
-       * ID of the power module connected to the node over RS485
+       * ID of the power module connected to the node
        * </pre>
        */
       public Builder setPowerID(int value) {
@@ -1422,7 +1320,7 @@ public final class Settings {
        *
        * <pre>
        **
-       * ID of the power module connected to the node over RS485
+       * ID of the power module connected to the node
        * </pre>
        */
       public Builder clearPowerID() {
@@ -1457,13 +1355,13 @@ public final class Settings {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016settings.proto\"\324\001\n\014SensorConfig\022\017\n\007has" +
+      "\n\016settings.proto\"\323\001\n\014SensorConfig\022\017\n\007has" +
       "ADC1\030\001 \002(\010\022\017\n\007hasADC2\030\002 \002(\010\022\017\n\007hasRain\030\003" +
-      " \002(\010\022\016\n\006avrIDs\030\004 \003(\r\022\020\n\010interval\030\005 \002(\004\022." +
-      "\n\013routingMode\030\006 \002(\0162\031.SensorConfig.Routi" +
-      "ngMode\022\017\n\007powerID\030\007 \001(\r\".\n\013RoutingMode\022\010" +
-      "\n\004MESH\020\000\022\013\n\007FEATHER\020\001\022\010\n\004LEAF\020\002B\030\n\026org.m" +
-      "ountainsensing.pb"
+      " \002(\010\022\r\n\005avrID\030\004 \001(\r\022\020\n\010interval\030\005 \002(\004\022.\n" +
+      "\013routingMode\030\006 \002(\0162\031.SensorConfig.Routin" +
+      "gMode\022\017\n\007powerID\030\007 \001(\r\".\n\013RoutingMode\022\010\n" +
+      "\004MESH\020\000\022\013\n\007FEATHER\020\001\022\010\n\004LEAF\020\002B\030\n\026org.mo" +
+      "untainsensing.pb"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1482,7 +1380,7 @@ public final class Settings {
     internal_static_SensorConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_SensorConfig_descriptor,
-        new java.lang.String[] { "HasADC1", "HasADC2", "HasRain", "AvrIDs", "Interval", "RoutingMode", "PowerID", });
+        new java.lang.String[] { "HasADC1", "HasADC2", "HasRain", "AvrID", "Interval", "RoutingMode", "PowerID", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

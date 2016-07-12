@@ -24,8 +24,8 @@ typedef struct _SensorConfig {
     bool hasADC1;
     bool hasADC2;
     bool hasRain;
-    pb_size_t avrIDs_count;
-    uint32_t avrIDs[8];
+    bool has_avrID;
+    uint32_t avrID;
     uint64_t interval;
     SensorConfig_RoutingMode routingMode;
     bool has_powerID;
@@ -35,14 +35,14 @@ typedef struct _SensorConfig {
 /* Default values for struct fields */
 
 /* Initializer values for message structs */
-#define SensorConfig_init_default                {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0}, 0, (SensorConfig_RoutingMode)0, false, 0}
-#define SensorConfig_init_zero                   {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0}, 0, (SensorConfig_RoutingMode)0, false, 0}
+#define SensorConfig_init_default                {0, 0, 0, false, 0, 0, (SensorConfig_RoutingMode)0, false, 0}
+#define SensorConfig_init_zero                   {0, 0, 0, false, 0, 0, (SensorConfig_RoutingMode)0, false, 0}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define SensorConfig_hasADC1_tag                 1
 #define SensorConfig_hasADC2_tag                 2
 #define SensorConfig_hasRain_tag                 3
-#define SensorConfig_avrIDs_tag                  4
+#define SensorConfig_avrID_tag                   4
 #define SensorConfig_interval_tag                5
 #define SensorConfig_routingMode_tag             6
 #define SensorConfig_powerID_tag                 7
@@ -51,7 +51,7 @@ typedef struct _SensorConfig {
 extern const pb_field_t SensorConfig_fields[8];
 
 /* Maximum encoded size of messages (where known) */
-#define SensorConfig_size                        77
+#define SensorConfig_size                        35
 
 /* Message IDs (where set with "msgid" option) */
 #ifdef PB_MSGID

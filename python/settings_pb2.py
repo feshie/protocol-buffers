@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='settings.proto',
   package='',
-  serialized_pb=_b('\n\x0esettings.proto\"\xd4\x01\n\x0cSensorConfig\x12\x0f\n\x07hasADC1\x18\x01 \x02(\x08\x12\x0f\n\x07hasADC2\x18\x02 \x02(\x08\x12\x0f\n\x07hasRain\x18\x03 \x02(\x08\x12\x0e\n\x06\x61vrIDs\x18\x04 \x03(\r\x12\x10\n\x08interval\x18\x05 \x02(\x04\x12.\n\x0broutingMode\x18\x06 \x02(\x0e\x32\x19.SensorConfig.RoutingMode\x12\x0f\n\x07powerID\x18\x07 \x01(\r\".\n\x0bRoutingMode\x12\x08\n\x04MESH\x10\x00\x12\x0b\n\x07\x46\x45\x41THER\x10\x01\x12\x08\n\x04LEAF\x10\x02\x42\x18\n\x16org.mountainsensing.pb')
+  serialized_pb=_b('\n\x0esettings.proto\"\xd3\x01\n\x0cSensorConfig\x12\x0f\n\x07hasADC1\x18\x01 \x02(\x08\x12\x0f\n\x07hasADC2\x18\x02 \x02(\x08\x12\x0f\n\x07hasRain\x18\x03 \x02(\x08\x12\r\n\x05\x61vrID\x18\x04 \x01(\r\x12\x10\n\x08interval\x18\x05 \x02(\x04\x12.\n\x0broutingMode\x18\x06 \x02(\x0e\x32\x19.SensorConfig.RoutingMode\x12\x0f\n\x07powerID\x18\x07 \x01(\r\".\n\x0bRoutingMode\x12\x08\n\x04MESH\x10\x00\x12\x0b\n\x07\x46\x45\x41THER\x10\x01\x12\x08\n\x04LEAF\x10\x02\x42\x18\n\x16org.mountainsensing.pb')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -45,8 +45,8 @@ _SENSORCONFIG_ROUTINGMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=185,
-  serialized_end=231,
+  serialized_start=184,
+  serialized_end=230,
 )
 _sym_db.RegisterEnumDescriptor(_SENSORCONFIG_ROUTINGMODE)
 
@@ -80,9 +80,9 @@ _SENSORCONFIG = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='avrIDs', full_name='SensorConfig.avrIDs', index=3,
-      number=4, type=13, cpp_type=3, label=3,
-      has_default_value=False, default_value=[],
+      name='avrID', full_name='SensorConfig.avrID', index=3,
+      number=4, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -120,7 +120,7 @@ _SENSORCONFIG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=19,
-  serialized_end=231,
+  serialized_end=230,
 )
 
 _SENSORCONFIG.fields_by_name['routingMode'].enum_type = _SENSORCONFIG_ROUTINGMODE

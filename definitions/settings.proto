@@ -27,9 +27,9 @@ message SensorConfig {
     required bool hasRain = 3;
 
     /**
-     * IDs of all the AVRs connected to the node
+     * ID of the AVR sensor connected to the node
      */
-    repeated uint32 avrIDs = 4;
+    optional uint32 avrID = 4;
 
     /**
      * Sampling interval in seconds
@@ -45,7 +45,7 @@ message SensorConfig {
     required RoutingMode routingMode = 6;
 
     /**
-     * ID of the power module connected to the node over RS485
+     * ID of the power module connected to the node
      */
     optional uint32 powerID = 7;
 }
