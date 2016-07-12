@@ -1,1 +1,5 @@
-
+// These fields are all 16bits in real life
+PowerInfo.batt int_size:IS_16
+PowerInfo.current int_size:IS_16
+PowerInfo.soc int_size:IS_16
+PowerInfo.mppt int_size:IS_16

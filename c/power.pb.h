@@ -16,13 +16,13 @@ extern "C" {
 /* Struct definitions */
 typedef struct _PowerInfo {
     bool has_batt;
-    uint32_t batt;
+    uint16_t batt;
     bool has_current;
-    int32_t current;
+    int16_t current;
     bool has_soc;
-    uint32_t soc;
+    uint16_t soc;
     bool has_mppt;
-    uint32_t mppt;
+    uint16_t mppt;
 } PowerInfo;
 
 /* Default values for struct fields */
