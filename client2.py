@@ -37,11 +37,10 @@ def processRawResponse(s):
         crclow = crc & 0xff
         crchigh = (crc >> 8) & 0xff
 
-        if crclow == hex[len(hex) - 2] and crchigh == hex[len(hex) - 1]:
-            return s[2:len(hex) - 2]
-        else:
+        if crclow != hex[len(hex) - 2] or crchigh != hex[len(hex) - 1]:
             print "Checksum error"
-            return None
+
+        return s[2:len(hex) - 2]
 
 def readSerial():
 	while connected:
