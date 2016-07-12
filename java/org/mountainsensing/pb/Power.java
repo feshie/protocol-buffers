@@ -17,7 +17,7 @@ public final class Power {
      *
      * <pre>
      **
-     * Battery voltage, mV = batt * 0.625
+     * Battery voltage, in mV
      * </pre>
      */
     boolean hasBatt();
@@ -26,7 +26,7 @@ public final class Power {
      *
      * <pre>
      **
-     * Battery voltage, mV = batt * 0.625
+     * Battery voltage, in mV
      * </pre>
      */
     int getBatt();
@@ -36,7 +36,7 @@ public final class Power {
      *
      * <pre>
      **
-     * Charge current into the battery from the solar panel, mA = current * 0.15625
+     * Charge current into the battery from the solar panel, in mA
      * </pre>
      */
     boolean hasCurrent();
@@ -45,7 +45,7 @@ public final class Power {
      *
      * <pre>
      **
-     * Charge current into the battery from the solar panel, mA = current * 0.15625
+     * Charge current into the battery from the solar panel, in mA
      * </pre>
      */
     int getCurrent();
@@ -212,7 +212,7 @@ public final class Power {
      *
      * <pre>
      **
-     * Battery voltage, mV = batt * 0.625
+     * Battery voltage, in mV
      * </pre>
      */
     public boolean hasBatt() {
@@ -223,7 +223,7 @@ public final class Power {
      *
      * <pre>
      **
-     * Battery voltage, mV = batt * 0.625
+     * Battery voltage, in mV
      * </pre>
      */
     public int getBatt() {
@@ -237,7 +237,7 @@ public final class Power {
      *
      * <pre>
      **
-     * Charge current into the battery from the solar panel, mA = current * 0.15625
+     * Charge current into the battery from the solar panel, in mA
      * </pre>
      */
     public boolean hasCurrent() {
@@ -248,7 +248,7 @@ public final class Power {
      *
      * <pre>
      **
-     * Charge current into the battery from the solar panel, mA = current * 0.15625
+     * Charge current into the battery from the solar panel, in mA
      * </pre>
      */
     public int getCurrent() {
@@ -596,7 +596,7 @@ public final class Power {
        *
        * <pre>
        **
-       * Battery voltage, mV = batt * 0.625
+       * Battery voltage, in mV
        * </pre>
        */
       public boolean hasBatt() {
@@ -607,7 +607,7 @@ public final class Power {
        *
        * <pre>
        **
-       * Battery voltage, mV = batt * 0.625
+       * Battery voltage, in mV
        * </pre>
        */
       public int getBatt() {
@@ -618,7 +618,7 @@ public final class Power {
        *
        * <pre>
        **
-       * Battery voltage, mV = batt * 0.625
+       * Battery voltage, in mV
        * </pre>
        */
       public Builder setBatt(int value) {
@@ -632,7 +632,7 @@ public final class Power {
        *
        * <pre>
        **
-       * Battery voltage, mV = batt * 0.625
+       * Battery voltage, in mV
        * </pre>
        */
       public Builder clearBatt() {
@@ -648,7 +648,7 @@ public final class Power {
        *
        * <pre>
        **
-       * Charge current into the battery from the solar panel, mA = current * 0.15625
+       * Charge current into the battery from the solar panel, in mA
        * </pre>
        */
       public boolean hasCurrent() {
@@ -659,7 +659,7 @@ public final class Power {
        *
        * <pre>
        **
-       * Charge current into the battery from the solar panel, mA = current * 0.15625
+       * Charge current into the battery from the solar panel, in mA
        * </pre>
        */
       public int getCurrent() {
@@ -670,7 +670,7 @@ public final class Power {
        *
        * <pre>
        **
-       * Charge current into the battery from the solar panel, mA = current * 0.15625
+       * Charge current into the battery from the solar panel, in mA
        * </pre>
        */
       public Builder setCurrent(int value) {
@@ -684,7 +684,7 @@ public final class Power {
        *
        * <pre>
        **
-       * Charge current into the battery from the solar panel, mA = current * 0.15625
+       * Charge current into the battery from the solar panel, in mA
        * </pre>
        */
       public Builder clearCurrent() {
