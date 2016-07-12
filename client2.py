@@ -21,8 +21,8 @@ def processRawResponse(s):
 	# s = unpack('B', s[0])
 	hex = bytearray.fromhex(s.encode('hex'))
 
-        if (len(hex) < 4):
-            print "Invalid message size"
+        if (len(hex) <= 4):
+            print "Invalid message size (%d)" % len(hex)
             return None
 
         if (hex[0] != 0):
