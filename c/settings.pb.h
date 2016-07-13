@@ -29,11 +29,11 @@ typedef struct _SensorConfig {
     bool hasADC2;
     bool hasRain;
     bool has_avrID;
-    uint32_t avrID;
+    uint8_t avrID;
     uint64_t interval;
     SensorConfig_RoutingMode routingMode;
     bool has_powerID;
-    uint32_t powerID;
+    uint8_t powerID;
 /* @@protoc_insertion_point(struct:SensorConfig) */
 } SensorConfig;
 

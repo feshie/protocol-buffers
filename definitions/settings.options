@@ -1,2 +1,3 @@
-SensorConfig.avrIDs max_count:8 
-POSTConfig.ip max_count:8
+// These IDs are byte big, but we're stuck with ints for backwards compatibility
+SensorConfig.avrID int_size:IS_8
+SensorConfig.powerID int_size:IS_8
