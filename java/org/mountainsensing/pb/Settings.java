@@ -95,7 +95,7 @@ public final class Settings {
     int getAvrID();
 
     /**
-     * <code>required uint64 interval = 5;</code>
+     * <code>required uint32 interval = 5;</code>
      *
      * <pre>
      **
@@ -104,14 +104,14 @@ public final class Settings {
      */
     boolean hasInterval();
     /**
-     * <code>required uint64 interval = 5;</code>
+     * <code>required uint32 interval = 5;</code>
      *
      * <pre>
      **
      * Sampling interval in seconds
      * </pre>
      */
-    long getInterval();
+    int getInterval();
 
     /**
      * <code>required .SensorConfig.RoutingMode routingMode = 6;</code>
@@ -231,7 +231,7 @@ public final class Settings {
             }
             case 40: {
               bitField0_ |= 0x00000010;
-              interval_ = input.readUInt64();
+              interval_ = input.readUInt32();
               break;
             }
             case 48: {
@@ -488,9 +488,9 @@ public final class Settings {
     }
 
     public static final int INTERVAL_FIELD_NUMBER = 5;
-    private long interval_;
+    private int interval_;
     /**
-     * <code>required uint64 interval = 5;</code>
+     * <code>required uint32 interval = 5;</code>
      *
      * <pre>
      **
@@ -501,14 +501,14 @@ public final class Settings {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>required uint64 interval = 5;</code>
+     * <code>required uint32 interval = 5;</code>
      *
      * <pre>
      **
      * Sampling interval in seconds
      * </pre>
      */
-    public long getInterval() {
+    public int getInterval() {
       return interval_;
     }
 
@@ -573,7 +573,7 @@ public final class Settings {
       hasADC2_ = false;
       hasRain_ = false;
       avrID_ = 0;
-      interval_ = 0L;
+      interval_ = 0;
       routingMode_ = org.mountainsensing.pb.Settings.SensorConfig.RoutingMode.MESH;
       powerID_ = 0;
     }
@@ -623,7 +623,7 @@ public final class Settings {
         output.writeUInt32(4, avrID_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeUInt64(5, interval_);
+        output.writeUInt32(5, interval_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeEnum(6, routingMode_.getNumber());
@@ -658,7 +658,7 @@ public final class Settings {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(5, interval_);
+          .computeUInt32Size(5, interval_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
@@ -793,7 +793,7 @@ public final class Settings {
         bitField0_ = (bitField0_ & ~0x00000004);
         avrID_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
-        interval_ = 0L;
+        interval_ = 0;
         bitField0_ = (bitField0_ & ~0x00000010);
         routingMode_ = org.mountainsensing.pb.Settings.SensorConfig.RoutingMode.MESH;
         bitField0_ = (bitField0_ & ~0x00000020);
@@ -1159,9 +1159,9 @@ public final class Settings {
         return this;
       }
 
-      private long interval_ ;
+      private int interval_ ;
       /**
-       * <code>required uint64 interval = 5;</code>
+       * <code>required uint32 interval = 5;</code>
        *
        * <pre>
        **
@@ -1172,32 +1172,32 @@ public final class Settings {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>required uint64 interval = 5;</code>
+       * <code>required uint32 interval = 5;</code>
        *
        * <pre>
        **
        * Sampling interval in seconds
        * </pre>
        */
-      public long getInterval() {
+      public int getInterval() {
         return interval_;
       }
       /**
-       * <code>required uint64 interval = 5;</code>
+       * <code>required uint32 interval = 5;</code>
        *
        * <pre>
        **
        * Sampling interval in seconds
        * </pre>
        */
-      public Builder setInterval(long value) {
+      public Builder setInterval(int value) {
         bitField0_ |= 0x00000010;
         interval_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint64 interval = 5;</code>
+       * <code>required uint32 interval = 5;</code>
        *
        * <pre>
        **
@@ -1206,7 +1206,7 @@ public final class Settings {
        */
       public Builder clearInterval() {
         bitField0_ = (bitField0_ & ~0x00000010);
-        interval_ = 0L;
+        interval_ = 0;
         onChanged();
         return this;
       }
@@ -1357,7 +1357,7 @@ public final class Settings {
     java.lang.String[] descriptorData = {
       "\n\016settings.proto\"\323\001\n\014SensorConfig\022\017\n\007has" +
       "ADC1\030\001 \002(\010\022\017\n\007hasADC2\030\002 \002(\010\022\017\n\007hasRain\030\003" +
-      " \002(\010\022\r\n\005avrID\030\004 \001(\r\022\020\n\010interval\030\005 \002(\004\022.\n" +
+      " \002(\010\022\r\n\005avrID\030\004 \001(\r\022\020\n\010interval\030\005 \002(\r\022.\n" +
       "\013routingMode\030\006 \002(\0162\031.SensorConfig.Routin" +
       "gMode\022\017\n\007powerID\030\007 \001(\r\".\n\013RoutingMode\022\010\n" +
       "\004MESH\020\000\022\013\n\007FEATHER\020\001\022\010\n\004LEAF\020\002B\030\n\026org.mo" +

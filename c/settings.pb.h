@@ -30,7 +30,7 @@ typedef struct _SensorConfig {
     bool hasRain;
     bool has_avrID;
     uint8_t avrID;
-    uint64_t interval;
+    uint32_t interval;
     SensorConfig_RoutingMode routingMode;
     bool has_powerID;
     uint8_t powerID;
@@ -56,7 +56,7 @@ typedef struct _SensorConfig {
 extern const pb_field_t SensorConfig_fields[8];
 
 /* Maximum encoded size of messages (where known) */
-#define SensorConfig_size                        31
+#define SensorConfig_size                        26
 
 /* Message IDs (where set with "msgid" option) */
 #ifdef PB_MSGID

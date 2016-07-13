@@ -34,7 +34,7 @@ message SensorConfig {
     /**
      * Sampling interval in seconds
      */
-    required uint64 interval = 5;
+    required uint32 interval = 5;
 
     /**
      * The routing mode for this node.
