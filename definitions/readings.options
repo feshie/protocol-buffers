@@ -1,1 +1,4 @@
 Sample.AVR max_size:92
+
+// Make the battery oneof into an anonymous union
+Sample.battery anonymous_oneof:true

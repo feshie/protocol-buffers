@@ -23,7 +23,7 @@ typedef struct _Sample {
     union {
         float batt;
         PowerInfo power;
-    } battery;
+    };
     bool has_temp;
     float temp;
     bool has_accX;

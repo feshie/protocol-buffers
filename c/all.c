@@ -129,9 +129,9 @@ PB_STATIC_ASSERT((pb_membersize(Rs485, ow[0]) < 256 && pb_membersize(Rs485, ad[0
 
 const pb_field_t Sample_fields[14] = {
     PB_FIELD(  1, FIXED32 , REQUIRED, STATIC  , FIRST, Sample, time, time, 0),
-    PB_ONEOF_FIELD(battery,   2, FLOAT   , ONEOF, STATIC  , OTHER, Sample, batt, time, 0),
-    PB_ONEOF_FIELD(battery,  13, MESSAGE , ONEOF, STATIC  , OTHER, Sample, power, time, &PowerInfo_fields),
-    PB_FIELD(  3, FLOAT   , OPTIONAL, STATIC  , OTHER, Sample, temp, battery.power, 0),
+    PB_ANONYMOUS_ONEOF_FIELD(battery,   2, FLOAT   , ONEOF, STATIC  , OTHER, Sample, batt, time, 0),
+    PB_ANONYMOUS_ONEOF_FIELD(battery,  13, MESSAGE , ONEOF, STATIC  , OTHER, Sample, power, time, &PowerInfo_fields),
+    PB_FIELD(  3, FLOAT   , OPTIONAL, STATIC  , OTHER, Sample, temp, power, 0),
     PB_FIELD(  4, SINT32  , OPTIONAL, STATIC  , OTHER, Sample, accX, temp, 0),
     PB_FIELD(  5, SINT32  , OPTIONAL, STATIC  , OTHER, Sample, accY, accX, 0),
     PB_FIELD(  6, SINT32  , OPTIONAL, STATIC  , OTHER, Sample, accZ, accY, 0),
@@ -154,7 +154,7 @@ const pb_field_t Sample_fields[14] = {
  * numbers or field sizes that are larger than what can fit in 8 or 16 bit
  * field descriptors.
  */
-PB_STATIC_ASSERT((pb_membersize(Sample, battery.power) < 65536), YOU_MUST_DEFINE_PB_FIELD_32BIT_FOR_MESSAGES_Sample)
+PB_STATIC_ASSERT((pb_membersize(Sample, power) < 65536), YOU_MUST_DEFINE_PB_FIELD_32BIT_FOR_MESSAGES_Sample)
 #endif
 
 #if !defined(PB_FIELD_16BIT) && !defined(PB_FIELD_32BIT)
@@ -165,7 +165,7 @@ PB_STATIC_ASSERT((pb_membersize(Sample, battery.power) < 65536), YOU_MUST_DEFINE
  * numbers or field sizes that are larger than what can fit in the default
  * 8 bit descriptors.
  */
-PB_STATIC_ASSERT((pb_membersize(Sample, battery.power) < 256), YOU_MUST_DEFINE_PB_FIELD_16BIT_FOR_MESSAGES_Sample)
+PB_STATIC_ASSERT((pb_membersize(Sample, power) < 256), YOU_MUST_DEFINE_PB_FIELD_16BIT_FOR_MESSAGES_Sample)
 #endif
 
 
